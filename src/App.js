@@ -9,6 +9,7 @@ import {
 import CarouselTop from './components/Carousel'
 import Locations from './Pages/Locations'
 import Newuser from './Pages/Newuser'
+import NavbarTop from './components/NavbarTop.js'
 
 
 class App extends Component {
@@ -16,7 +17,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-		<CarouselTop />
 
 
           <Route exact path="/" render={props => (

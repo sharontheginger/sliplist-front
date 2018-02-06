@@ -17,7 +17,9 @@ class App extends Component {
     return (
       <Router>
         <div>
-
+					<NavbarTop />
+						<div>
+        		</div>
 
           <Route exact path="/" render={props => (
             <Grid>

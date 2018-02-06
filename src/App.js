@@ -17,7 +17,8 @@ class App extends Component {
     return (
       <Router>
         <div>
-					<NavbarTop />
+		<NavbarTop />
+		<CarouselTop />
 						<div>
         		</div>
 

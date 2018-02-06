@@ -19,6 +19,8 @@ class App extends Component {
         <div>
 		<NavbarTop />
 		<CarouselTop />
+						<div>
+        		</div>
 
           <Route exact path="/" render={props => (
             <Grid>

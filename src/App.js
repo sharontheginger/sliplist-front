@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
 import {
-	Carousel,
-	Button,
-	NavDropdown,
-	Navbar,
-	Nav,
-	NavItem,
-	MenuItem,
 	Col,
 	Row,
 	Grid,
 	PageHeader
 } from 'react-bootstrap'
+import CarouselTop from './components/Carousel'
 import Locations from './Pages/Locations'
 import Newuser from './Pages/Newuser'
 import NavbarTop from './components/NavbarTop.js'

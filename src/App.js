@@ -17,7 +17,8 @@ class App extends Component {
     return (
       <Router>
         <div>
-
+		<CarouselTop />
+		<NavbarTop />
 
           <Route exact path="/" render={props => (
             <Grid>

@@ -9,7 +9,8 @@ import {
 import CarouselTop from './components/Carousel'
 import Locations from './Pages/Locations'
 import Newuser from './Pages/Newuser'
-import NavbarTop from './components/NavbarTop.js'
+import NavbarTop from './components/NavbarTop'
+import CreateLocation from './components/CreateLocation'
 
 
 class App extends Component {
@@ -56,27 +57,27 @@ class App extends Component {
               <PageHeader>
                 <Row>
                   <Col xs={8}>
-                  SlipList
+                  SlipList <br />
                     <small className='subtitle'>Sign Up</small>
                       </Col>
                       <Col xs={4}>
                     <small>
-                    <Link to='/Locations' id='locations-link'>Locations</Link>
+                    <Link to='/locations' id='locations-link'>Locations</Link>
                     </small>
                   </Col>
                 </Row>
               </PageHeader>
-			  <Newuser name={this.props.form}/>
+			  <Newuser name={this.props.userform}/>
             </Grid>
           )} />
 
-          <Route exact path="/Newuser" render={props => (
+          <Route exact path="/createlocation" render={props => (
           <Grid>
             <PageHeader>
               <Row>
                 <Col xs={8}>
-                  SlipList
-                  <small className='subtitle'>Create a User Form</small>
+                  SlipList <br />
+                  <small className='subtitle'>Locations</small>
                 </Col>
                 <Col xs={4}>
                   <small>
@@ -85,7 +86,7 @@ class App extends Component {
                 </Col>
               </Row>
             </PageHeader>
-			<Locations locations={this.state.locations}/>
+			<CreateLocation name={this.props.locationform}/>
           </Grid>
         )} />
 

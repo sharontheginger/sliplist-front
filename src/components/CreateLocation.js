@@ -11,23 +11,22 @@ import {
 } from 'react-bootstrap'
 
 
-class Newuser extends Component {
+class CreateLocation extends Component {
 	constructor(props){
   super(props)
   this.state = {
-    userform:{
-      firstName: '',
-      lastName: '',
-	  email: '',
-      phone: ''
+    locationform:{
+      owner: '',
+      location: '',
+	  description: ''
     }
   }
 }
 
 handleChange(event){
-  const formState = Object.assign({}, this.state.form)
+  const formState = Object.assign({}, this.state.locationform)
   formState[event.target.name] = event.target.value
-  this.setState({userform: formState})
+  this.setState({locationform: formState})
 }
 
 	render() {
@@ -37,12 +36,12 @@ handleChange(event){
         <Row>
           <Col xs={6}>
             <FormGroup>
-              <ControlLabel id="firstName">First Name</ControlLabel>
+              <ControlLabel id="owner">Owner</ControlLabel>
               <FormControl
 			  type="string"
-			  name="firstName"
+			  name="owner"
 			  onChange={this.handleChange.bind(this)}
-  	  		  value={this.state.userform.firstName}
+  	  		  value={this.state.locationform.owner}
  		  	/>
             </FormGroup>
           </Col>
@@ -51,12 +50,12 @@ handleChange(event){
         <Row>
           <Col xs={6}>
             <FormGroup>
-              <ControlLabel id="lastname">Last Name</ControlLabel>
+              <ControlLabel id="location">Locations</ControlLabel>
 			  <FormControl
 			  type="string"
-			  name="lastName"
+			  name="location"
 			  onChange={this.handleChange.bind(this)}
-  	  		  value={this.state.userform.lastName}
+  	  		  value={this.state.locationform.location}
  		  	/>
             </FormGroup>
           </Col>
@@ -65,34 +64,19 @@ handleChange(event){
 		<Row>
           <Col xs={6}>
             <FormGroup>
-              <ControlLabel id="email">Email</ControlLabel>
+              <ControlLabel id="description">Description</ControlLabel>
 			  <FormControl
 			  type="string"
-			  name="email"
+			  name="description"
 			  onChange={this.handleChange.bind(this)}
-  	  		  value={this.state.userform.email}
+  	  		  value={this.state.locationform.description}
  		  	/>
             </FormGroup>
           </Col>
         </Row>
-
 		<Row>
           <Col xs={6}>
-            <FormGroup>
-              <ControlLabel id="phone">Phone</ControlLabel>
-			  <FormControl
-			  type="string"
-			  name="phone"
-			  onChange={this.handleChange.bind(this)}
-  	  		  value={this.state.userform.phone}
- 		  	/>
-            </FormGroup>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col xs={6}>
-            <Button id="submit" >Create Profile</Button>
+            <Button id="submit" >Create Location</Button>
           </Col>
         </Row>
 
@@ -101,4 +85,4 @@ handleChange(event){
     }
   }
 
-export default Newuser
+export default CreateLocation

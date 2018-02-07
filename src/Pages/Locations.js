@@ -10,35 +10,40 @@ import {
 
 
 class Locations extends Component {
+	constructor(props){
+    super(props)
+    this.state = {
+      locations: [
+        {
+          id: 1,
+          firstName: "fernando",
+          lastName: "fonzu",
+          email: "mandrid@yahoo.com",
+		  phone: "619-244-3434"
+        },
+        {
+			id: 2,
+   		 firstName: "orlando",
+   		 lastName: "fuji",
+   		 email: "landri@yahoo.com",
+   		 phone: "619-244-2334"
+   	   },
+        {
+			id: 3,
+            firstName: "bob",
+            lastName: "tonhy",
+            email: "bob21@yahoo.com",
+  		  phone: "619-244-2112"
+          },
+      ]
+    }
+  }
+
   render() {
     return (
       <Row>
         <Col>
-		<ListGroup>
-            {this.props.locations.map((location, index) =>{
-              return (
-                <ListGroupItem
-                  key={index}
-                  header={
-                    <h4>
-                      <span className='location-firstName'>
-                        {location.firstName}
-                      </span>
-                       <span className='location-lastName'>
-					   {location.lastName}
-					   </span>
-                    </h4>
-                  }>
-                  <span className='location-email'>
-                    {location.email}
-                  </span>
-				  <span className='location-phone'>
-                    {location.phone}
-                  </span>
-                </ListGroupItem>
-              )
-            })}
-          </ListGroup>
+
         </Col>
       </Row>
     );

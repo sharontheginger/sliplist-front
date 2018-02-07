@@ -20,7 +20,7 @@ class NavbarTop extends Component {
             <Navbar inverse collapseOnSelect>
               <Navbar.Header>
                 <Navbar.Brand>
-                  <a href="#brand">Slip List</a>
+                  <a href='/'>Slip List</a>
                 </Navbar.Brand>
                 <Navbar.Toggle />
               </Navbar.Header>

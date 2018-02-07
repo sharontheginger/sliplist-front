@@ -18,7 +18,7 @@ class Newuser extends Component {
     userform:{
       firstName: '',
       lastName: '',
-	  email: '',
+	    email: '',
       phone: ''
     }
   }
@@ -33,17 +33,18 @@ handleChange(event){
 	render() {
       return (
 		  <form>
-
         <Row>
           <Col xs={6}>
             <FormGroup>
-              <ControlLabel id="firstName">First Name</ControlLabel>
+              <ControlLabel id="firstName">First Name
+              </ControlLabel>
               <FormControl
-			  type="string"
-			  name="firstName"
-			  onChange={this.handleChange.bind(this)}
-  	  		  value={this.state.userform.firstName}
- 		  	/>
+		           type="string"
+		           name="firstName"
+               placeholder='First Name'
+		           onChange={this.handleChange.bind(this)}
+	  		       value={this.state.userform.firstName}
+ 		  	      />
             </FormGroup>
           </Col>
         </Row>
@@ -51,48 +52,49 @@ handleChange(event){
         <Row>
           <Col xs={6}>
             <FormGroup>
-              <ControlLabel id="lastname">Last Name</ControlLabel>
-			  <FormControl
-			  type="string"
-			  name="lastName"
-			  onChange={this.handleChange.bind(this)}
-  	  		  value={this.state.userform.lastName}
- 		  	/>
+              <ControlLabel id="lastname">Last Name
+              </ControlLabel>
+      			  <FormControl
+        			  type="string"
+        			  name="lastName"
+                placeholder='Last Name'
+        			  onChange={this.handleChange.bind(this)}
+          	  	value={this.state.userform.lastName}/>
             </FormGroup>
           </Col>
         </Row>
 
-		<Row>
+		    <Row>
           <Col xs={6}>
             <FormGroup>
               <ControlLabel id="email">Email</ControlLabel>
-			  <FormControl
-			  type="string"
-			  name="email"
-			  onChange={this.handleChange.bind(this)}
-  	  		  value={this.state.userform.email}
- 		  	/>
+    			  <FormControl
+      			  type="string"
+      			  name="email"
+              placeholder='example@example.com'
+      			  onChange={this.handleChange.bind(this)}
+        	  	value={this.state.userform.email}/>
             </FormGroup>
           </Col>
         </Row>
 
-		<Row>
+		    <Row>
           <Col xs={6}>
             <FormGroup>
               <ControlLabel id="phone">Phone</ControlLabel>
-			  <FormControl
-			  type="string"
-			  name="phone"
-			  onChange={this.handleChange.bind(this)}
-  	  		  value={this.state.userform.phone}
- 		  	/>
-            </FormGroup>
+        			  <FormControl
+          			  type="string"
+          			  name="phone"
+                  placeholder='619-555-1212'
+          			  onChange={this.handleChange.bind(this)}
+            	  	value={this.state.userform.phone}/>
+                </FormGroup>
           </Col>
         </Row>
 
         <Row>
           <Col xs={6}>
-            <Button id="submit" >Create Profile</Button>
+            <Button id="submit">Create Profile</Button>
           </Col>
         </Row>
 

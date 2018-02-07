@@ -7,8 +7,8 @@ import {
 	PageHeader
 } from 'react-bootstrap'
 import CarouselTop from './components/Carousel'
-import Locations from './Pages/Locations'
-import Newuser from './Pages/Newuser'
+import Locations from './components/Locations'
+import Newuser from './components/Newuser'
 import NavbarTop from './components/NavbarTop'
 import CreateLocation from './components/CreateLocation'
 

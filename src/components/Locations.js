@@ -43,7 +43,7 @@ class Locations extends Component {
     return (
       <Row>
         <Col>
-
+      
         </Col>
       </Row>
     );

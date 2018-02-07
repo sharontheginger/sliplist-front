@@ -13,6 +13,35 @@ import NavbarTop from './components/NavbarTop.js'
 
 
 class App extends Component {
+	constructor(props){
+    super(props)
+    this.state = {
+      locations: [
+        {
+          id: 1,
+          firstName: "fernando",
+          lastName: "fonzu",
+          email: "mandrid@yahoo.com",
+		  phone: "619-244-3434"
+        },
+        {
+			id: 2,
+   		 firstName: "orlando",
+   		 lastName: "fuji",
+   		 email: "landri@yahoo.com",
+   		 phone: "619-244-2334"
+   	   },
+        {
+			id: 3,
+            firstName: "bob",
+            lastName: "tonhy",
+            email: "bob21@yahoo.com",
+  		  phone: "619-244-2112"
+          },
+      ]
+    }
+  }
+
   render() {
     return (
       <Router>
@@ -28,15 +57,16 @@ class App extends Component {
                 <Row>
                   <Col xs={8}>
                   SlipList
-                    <small className='subtitle'>Locations</small>
+                    <small className='subtitle'>Sign Up</small>
                       </Col>
                       <Col xs={4}>
                     <small>
-                    <Link to='/' id='locations-link'>Locations</Link>
+                    <Link to='/Locations' id='locations-link'>Locations</Link>
                     </small>
                   </Col>
                 </Row>
               </PageHeader>
+			  <Newuser name={this.props.form}/>
             </Grid>
           )} />
 
@@ -55,6 +85,7 @@ class App extends Component {
                 </Col>
               </Row>
             </PageHeader>
+			<Locations locations={this.state.locations}/>
           </Grid>
         )} />
 

@@ -1,21 +1,104 @@
 import React, { Component } from 'react';
 import {
+  Button,
   Grid,
   PageHeader,
   Row,
-  Col
+  Col,
+  FormGroup,
+  ControlLabel,
+  FormControl
 } from 'react-bootstrap'
 
 
 class Newuser extends Component {
-  render() {
-    return (
-      <Row>
-        <Col>
-        </Col>
-      </Row>
-    );
+	constructor(props){
+  super(props)
+  this.state = {
+    form:{
+      firstName: '',
+      lastName: '',
+	  email: '',
+      phone: ''
+    }
   }
 }
+
+handleChange(event){
+  const formState = Object.assign({}, this.state.form)
+  formState[event.target.name] = event.target.value
+  this.setState({form: formState})
+}
+
+	render() {
+      return (
+		  <form>
+
+        <Row>
+          <Col xs={6}>
+            <FormGroup>
+              <ControlLabel id="firstName">First Name</ControlLabel>
+              <FormControl
+			  type="string"
+			  name="firstName"
+			  onChange={this.handleChange.bind(this)}
+  	  		  value={this.state.form.firstName}
+ 		  	/>
+            </FormGroup>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col xs={6}>
+            <FormGroup>
+              <ControlLabel id="lastname">Last Name</ControlLabel>
+			  <FormControl
+			  type="string"
+			  name="lastName"
+			  onChange={this.handleChange.bind(this)}
+  	  		  value={this.state.form.lastName}
+ 		  	/>
+            </FormGroup>
+          </Col>
+        </Row>
+
+		<Row>
+          <Col xs={6}>
+            <FormGroup>
+              <ControlLabel id="email">Email</ControlLabel>
+			  <FormControl
+			  type="string"
+			  name="email"
+			  onChange={this.handleChange.bind(this)}
+  	  		  value={this.state.form.email}
+ 		  	/>
+            </FormGroup>
+          </Col>
+        </Row>
+
+		<Row>
+          <Col xs={6}>
+            <FormGroup>
+              <ControlLabel id="phone">Phone</ControlLabel>
+			  <FormControl
+			  type="string"
+			  name="phone"
+			  onChange={this.handleChange.bind(this)}
+  	  		  value={this.state.form.phone}
+ 		  	/>
+            </FormGroup>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col xs={6}>
+            <Button id="submit" >Create Profile</Button>
+          </Col>
+        </Row>
+
+      </form>
+      );
+    }
+  }
 
 export default Newuser

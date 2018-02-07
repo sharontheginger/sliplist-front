@@ -20,7 +20,7 @@ class NavbarTop extends Component {
             <Navbar inverse collapseOnSelect>
               <Navbar.Header>
                 <Navbar.Brand>
-                  <a href="#brand">Slip List</a>
+                  <a href='/'>Slip List</a>
                 </Navbar.Brand>
                 <Navbar.Toggle />
               </Navbar.Header>
@@ -28,7 +28,7 @@ class NavbarTop extends Component {
                 <Nav>
                   <NavDropdown eventKey={3} title="Actions" id="basic-nav-dropdown">
                     <MenuItem eventKey={3.1} href='/createlocation' >Create location</MenuItem>
-                    <MenuItem eventKey={3.2} href={this.props.locations}>See all locations</MenuItem>
+                    <MenuItem eventKey={3.2} href='/locations'>See all locations</MenuItem>
                     <MenuItem divider />
                     <MenuItem eventKey={3.3} href='/'>Home</MenuItem>
                   </NavDropdown>

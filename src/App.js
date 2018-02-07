@@ -11,6 +11,7 @@ import Locations from './components/Locations'
 import Newuser from './components/Newuser'
 import NavbarTop from './components/NavbarTop'
 import CreateLocation from './components/CreateLocation'
+import Header from './components/header'
 
 
 class App extends Component {
@@ -49,6 +50,7 @@ class App extends Component {
         <div>
 		<NavbarTop />
 		<CarouselTop />
+		<Header name={this.state.locations} />
 						<div>
         		</div>
 
@@ -89,7 +91,7 @@ class App extends Component {
 			<CreateLocation name={this.props.locationform}/>
           </Grid>
         )} />
-
+		<Locations  />
 
         </div>
       </Router>

@@ -7,12 +7,42 @@ import {
 	PageHeader
 } from 'react-bootstrap'
 import CarouselTop from './components/Carousel'
-import Locations from './Pages/Locations'
-import Newuser from './Pages/Newuser'
-import NavbarTop from './components/NavbarTop.js'
+import Locations from './components/Locations'
+import Newuser from './components/Newuser'
+import NavbarTop from './components/NavbarTop'
+import CreateLocation from './components/CreateLocation'
 
 
 class App extends Component {
+	constructor(props){
+    super(props)
+    this.state = {
+      locations: [
+        {
+          id: 1,
+          firstName: "fernando",
+          lastName: "fonzu",
+          email: "mandrid@yahoo.com",
+		  phone: "619-244-3434"
+        },
+        {
+			id: 2,
+   		 firstName: "orlando",
+   		 lastName: "fuji",
+   		 email: "landri@yahoo.com",
+   		 phone: "619-244-2334"
+   	   },
+        {
+			id: 3,
+            firstName: "bob",
+            lastName: "tonhy",
+            email: "bob21@yahoo.com",
+  		  phone: "619-244-2112"
+          },
+      ]
+    }
+  }
+
   render() {
     return (
       <Router>
@@ -27,26 +57,27 @@ class App extends Component {
               <PageHeader>
                 <Row>
                   <Col xs={8}>
-                  SlipList
-                    <small className='subtitle'>Locations</small>
+                  SlipList <br />
+                    <small className='subtitle'>Sign Up</small>
                       </Col>
                       <Col xs={4}>
                     <small>
-                    <Link to='/' id='locations-link'>Locations</Link>
+                    <Link to='/locations' id='locations-link'>Locations</Link>
                     </small>
                   </Col>
                 </Row>
               </PageHeader>
+			  <Newuser name={this.props.userform}/>
             </Grid>
           )} />
 
-          <Route exact path="/Newuser" render={props => (
+          <Route exact path="/createlocation" render={props => (
           <Grid>
             <PageHeader>
               <Row>
                 <Col xs={8}>
-                  SlipList
-                  <small className='subtitle'>Create a User Form</small>
+                  SlipList <br />
+                  <small className='subtitle'>Locations</small>
                 </Col>
                 <Col xs={4}>
                   <small>
@@ -55,6 +86,7 @@ class App extends Component {
                 </Col>
               </Row>
             </PageHeader>
+			<CreateLocation name={this.props.locationform}/>
           </Grid>
         )} />
 

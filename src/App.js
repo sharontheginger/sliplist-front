@@ -11,6 +11,7 @@ import Locations from './Locations'
 import Newuser from './Newuser'
 import NavbarTop from './components/NavbarTop'
 import CreateLocation from './components/CreateLocation'
+import Header from './components/header'
 
 
 class App extends Component {
@@ -50,6 +51,7 @@ class App extends Component {
 				<div>
 		<NavbarTop />
 		<CarouselTop />
+		<Header name={this.state.locations} />
 						<div>
 
 
@@ -90,25 +92,6 @@ class App extends Component {
 						<CreateLocation name={this.props.locationform}/>
           </Grid>
         )} />
-
-			<Route exact path="/createlocation" render={props => (
-					<Grid>
-						<PageHeader>
-							<Row>
-								<Col xs={8}>
-									SlipList <br />
-									<small className='subtitle'>Locations</small>
-								</Col>
-								<Col xs={4}>
-									<small>
-										<Link to='/' id='signup-link'>Sign Up</Link>
-									</small>
-								</Col>
-							</Row>
-						</PageHeader>
-						<Locations />
-					</Grid>
-				)} />
 
 		</div>
         </div>

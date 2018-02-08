@@ -13,11 +13,11 @@ import {
 } from 'react-bootstrap'
 
 
-class Locations extends Component {
+export default class Availabilities extends Component {
 	constructor(props){
     super(props)
     this.state = {
-      locations: [
+      availabilities: [
         {
         id: 1,
         firstName: "fernando",
@@ -44,14 +44,17 @@ class Locations extends Component {
   }
 
   render() {
+    let avail = this.state.availabilities.map(function(avail) {
+
+      return (
+        <li key={avail.firstName}>  {avail.firstName} {avail.lastName} {avail.email} {avail.phone} </li>
+      )
+    })
+
     return (
-      <Row>
-        <Col>
-          <h4>{this.state.locations}</h4>
-        </Col>
-      </Row>
+      <ul>
+        {avail}
+      </ul>
     );
   }
 }
-
-export default Locations

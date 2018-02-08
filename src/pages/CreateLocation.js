@@ -76,7 +76,7 @@ handleChange(event){
         </Row>
 		<Row>
           <Col xs={6}>
-            <Button id="submit" >Create Location</Button>
+            <Button id="submit" >Create Availability</Button>
           </Col>
         </Row>
 

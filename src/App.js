@@ -7,10 +7,11 @@ import {
 	PageHeader
 } from 'react-bootstrap'
 import CarouselTop from './components/Carousel'
-import Locations from './components/Locations'
-import Newuser from './components/Newuser'
+import Availabilities from './pages/Availabilities'
+import Newuser from './pages/Newuser'
 import NavbarTop from './components/NavbarTop'
-import CreateLocation from './components/CreateLocation'
+import CreateLocation from './pages/CreateLocation'
+
 
 
 class App extends Component {
@@ -46,11 +47,13 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+
+				<div>
 		<NavbarTop />
 		<CarouselTop />
+
 						<div>
-        		</div>
+
 
           <Route exact path="/" render={props => (
             <Grid>
@@ -62,7 +65,7 @@ class App extends Component {
                       </Col>
                       <Col xs={4}>
                     <small>
-                    <Link to='/locations' id='locations-link'>Locations</Link>
+                    <Link to='/locations' id='locations-link'>Availabilities</Link>
                     </small>
                   </Col>
                 </Row>
@@ -71,7 +74,7 @@ class App extends Component {
             </Grid>
           )} />
 
-          <Route exact path="/createlocation" render={props => (
+				<Route exact path="/locations" render={props => (
           <Grid>
             <PageHeader>
               <Row>
@@ -86,11 +89,30 @@ class App extends Component {
                 </Col>
               </Row>
             </PageHeader>
-			<CreateLocation name={this.props.locationform}/>
+						<CreateLocation name={this.props.locationform}/>
           </Grid>
         )} />
 
+			<Route exact path="/list" render={props => (
+          <Grid>
+            <PageHeader>
+              <Row>
+                <Col xs={8}>
+                  SlipList <br />
+                  <small className='subtitle'>Locations</small>
+                </Col>
+                <Col xs={4}>
+                  <small>
+                    <Link to='/' id='signup-link'>Sign Up</Link>
+                  </small>
+                </Col>
+              </Row>
+            </PageHeader>
+						<Availabilities />
+          </Grid>
+        )} />
 
+		</div>
         </div>
       </Router>
       );

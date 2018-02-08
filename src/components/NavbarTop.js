@@ -27,8 +27,8 @@ class NavbarTop extends Component {
               <Navbar.Collapse>
                 <Nav>
                   <NavDropdown eventKey={3} title="Actions" id="basic-nav-dropdown">
-                    <MenuItem eventKey={3.1} href='/createlocation' >Create location</MenuItem>
-                    <MenuItem eventKey={3.2} href='/locations'>See all locations</MenuItem>
+                    <MenuItem eventKey={3.1} href='/createlocation' >Create Availability</MenuItem>
+                    <MenuItem eventKey={3.2} href="/availabilities" >See all Availabilities</MenuItem>
                     <MenuItem divider />
                     <MenuItem eventKey={3.3} href='/'>Home</MenuItem>
                   </NavDropdown>

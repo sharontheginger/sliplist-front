@@ -31,6 +31,7 @@ handleSubmit(){
 handleChange(event){
   const formState = Object.assign({}, this.state.form)
   formState[event.target.name] = event.target.value
+
   this.setState({userform: formState})
 }
 

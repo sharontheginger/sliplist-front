@@ -32,8 +32,21 @@ it('Availabilities renders without crashing', () => {
   ReactDOM.render(<Availabilities />, div)
 })
 
-it('Renders the availabilities', () => {
+it('Renders the availabilities first name', () => {
   const component = mount(<Availabilities availabilities={availabilities} />)
   const headings = component.find('h4 > .availabilities-firstName')
   expect(headings.length).toBe(3)
+})
+
+
+it('Renders the last name', ()=>{
+  const component = mount(<Availabilities availabilities={availabilities} />)
+  const lastName = component.find('h4 > .availabilities-lastName').first()
+  expect(lastName.text()).toBe("fonzu")
+})
+
+it('Renders the email', ()=>{
+  const component = mount(<Availabilities availabilities={availabilities} />)
+  const email = component.find('.availabilities-email').first()
+  expect(email.text()).toBe("mandrid@yahoo.com")
 })

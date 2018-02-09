@@ -8,24 +8,34 @@ import {
 
 class Availabilities extends Component {
   render() {
+    let avails = this.props.availabilities || []
+
+    // this is the long-hand version of the above
+    // let avails;
+    // if(this.props.availabilities == undefined) {
+    //   avails = []
+    // } else {
+    //   avails = this.props.availabilities
+    // }
+
     return (
       <Row>
         <Col xs={12}>
           <ListGroup>
-            {this.props.availabilities.map((availabilities, index) =>{
+            {avails.map((a, index) => {
               return (
                 <ListGroupItem
                   key={index}
                   header={
                     <h4>
-                      <span className='avail-name'>
-                        {availabilities.firstName}
+                      <span className='availabilities-firstName'>
+                        {a.firstName}
                       </span>
-                      - <small className='avail-age'>{availabilities.lastName} years old</small>
+                      - <small className='availabilities-lastName'>{a.lastName}</small>
                     </h4>
                   }>
-                  <span className='avail-enjoys'>
-                    {availabilities.email}
+                  <span className='availabilities-email'>
+                    {a.email}
                   </span>
                 </ListGroupItem>
               )

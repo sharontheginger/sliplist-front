@@ -16,5 +16,5 @@ it("renders a sign up form", ()=>{
 it("links to availabilities index", ()=>{
   const app = mount(<App />)
   app.find('a#availabilities-link').simulate('click', {button: 0})
-  expect(app.find('.subtitle').text()).toEqual('Availabilities')
+  expect(app.find('.subtitle').text()).toEqual('please sign up to contact owner')
 })

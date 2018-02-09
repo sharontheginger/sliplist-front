@@ -50,3 +50,9 @@ it('Renders the email', ()=>{
   const email = component.find('.availabilities-email').first()
   expect(email.text()).toBe("mandrid@yahoo.com")
 })
+
+it('Renders the phone', ()=>{
+  const component = mount(<Availabilities availabilities={availabilities} />)
+  const phone = component.find('.availabilities-phone').first()
+  expect(phone.text()).toBe("619-244-3434")
+})

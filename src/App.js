@@ -49,11 +49,11 @@ class App extends Component {
 			<Router>
 				<div>
 					<NavbarTop />
-					<CarouselTop />
 					<div>
 						<Route exact path="/" render={props => (
 							<Grid>
 								<PageHeader>
+								<CarouselTop />
 									<Row>
 										<Col xs={8}>
 											SlipList
@@ -65,7 +65,7 @@ class App extends Component {
 										</Col>
 									</Row>
 								</PageHeader>
-								<Newuser name={this.props.userform}/>
+								<Newuser name={this.props.userform} onSubmit={this.NewuserSubmit.bind(this)} />
 								<Availabilities availabilities={this.state.availabilities} />
 							</Grid>
 						)} />
@@ -79,7 +79,7 @@ class App extends Component {
 											<small className='subtitle'>please sign up to contact owner</small>
 										</Col>
 										<Col xs={4}>
-											<small> <Link to='/createavailability' id='createavailabity-link'></Link></small>
+											<small> <Link to='/' id='createavailabity-link'> Home </Link></small>
 										</Col>
 									</Row>
 								</PageHeader>

@@ -51,7 +51,7 @@ handleChange(event){
         <Row>
           <Col xs={6}>
             <FormGroup>
-              <ControlLabel id="location">Locations</ControlLabel>
+              <ControlLabel id="location">Location</ControlLabel>
 			  <FormControl
 			  type="string"
 			  name="location"

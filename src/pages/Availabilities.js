@@ -31,11 +31,15 @@ class Availabilities extends Component {
                       <span className='availabilities-firstName'>
                         {a.firstName}
                       </span>
-                      - <small className='availabilities-lastName'>{a.lastName}</small>
+                      - <span className='availabilities-lastName'>{a.lastName}</span>
                     </h4>
                   }>
                   <span className='availabilities-email'>
                     {a.email}
+                  </span>
+				  <br />
+				  <span className='availabilities-phone'>
+                    {a.phone}
                   </span>
                 </ListGroupItem>
               )

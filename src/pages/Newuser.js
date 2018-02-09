@@ -18,10 +18,14 @@ class Newuser extends Component {
     userform:{
       firstName: '',
       lastName: '',
-	    email: '',
+	  email: '',
       phone: ''
     }
   }
+}
+
+handleSubmit(){
+  this.props.onSubmit(this.state.userform)
 }
 
 handleChange(event){
@@ -52,7 +56,7 @@ handleChange(event){
         <Row>
           <Col xs={6}>
             <FormGroup>
-              <ControlLabel id="lastname">Last Name
+              <ControlLabel id="lastName">Last Name
               </ControlLabel>
       			  <FormControl
         			  type="string"
@@ -94,7 +98,7 @@ handleChange(event){
 
         <Row>
           <Col xs={6}>
-            <Button id="submit">Create Profile</Button>
+            <Button id="submit" onClick={this.handleSubmit.bind(this)}>Create Profile</Button>
           </Col>
         </Row>
 

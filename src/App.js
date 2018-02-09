@@ -10,7 +10,7 @@ import CarouselTop from './components/Carousel'
 import NavbarTop from './components/NavbarTop'
 import Availabilities from './pages/Availabilities'
 import Newuser from './pages/Newuser'
-import CreateLocation from './pages/CreateLocation'
+import CreateAvailability from './pages/CreateAvailability'
 
 
 
@@ -79,7 +79,7 @@ class App extends Component {
 											<small className='subtitle'>please sign up to contact owner</small>
 										</Col>
 										<Col xs={4}>
-											<small> <Link to='/' id='createLocation-link'>Sign Up</Link> </small>
+											<small> <Link to='/createavailability' id='createavailabity-link'></Link></small>
 										</Col>
 									</Row>
 								</PageHeader>
@@ -87,7 +87,7 @@ class App extends Component {
 							</Grid>
 						)} />
 
-						<Route exact path="/createLocation" render={props => (
+					<Route exact path="/createavailability" render={props => (
 							<Grid>
 								<PageHeader>
 								<Row>
@@ -101,7 +101,7 @@ class App extends Component {
 									</Col>
 								</Row>
 								</PageHeader>
-								<Availabilities availabilities={this.state.availabilities} />
+								<CreateAvailability createavailability={this.state.createavailability} />
 							</Grid>
 						)} />
 

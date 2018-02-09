@@ -11,7 +11,7 @@ import {
 } from 'react-bootstrap'
 
 
-class CreateLocation extends Component {
+class CreateAvailability extends Component {
 	constructor(props){
   super(props)
   this.state = {
@@ -40,6 +40,7 @@ handleChange(event){
               <FormControl
 			  type="string"
 			  name="owner"
+        placeholder="Owner"
 			  onChange={this.handleChange.bind(this)}
   	  		  value={this.state.locationform.owner}
  		  	/>
@@ -54,6 +55,7 @@ handleChange(event){
 			  <FormControl
 			  type="string"
 			  name="location"
+        placeholder="Location"
 			  onChange={this.handleChange.bind(this)}
   	  		  value={this.state.locationform.location}
  		  	/>
@@ -68,6 +70,7 @@ handleChange(event){
 			  <FormControl
 			  type="string"
 			  name="description"
+        placeholder="Description"
 			  onChange={this.handleChange.bind(this)}
   	  		  value={this.state.locationform.description}
  		  	/>
@@ -76,7 +79,7 @@ handleChange(event){
         </Row>
 		<Row>
           <Col xs={6}>
-            <Button id="submit" >Create Availability</Button>
+            <Button id="submit">Create Availability</Button>
           </Col>
         </Row>
 
@@ -85,4 +88,4 @@ handleChange(event){
     }
   }
 
-export default CreateLocation
+export default CreateAvailability

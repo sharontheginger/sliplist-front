@@ -8,8 +8,8 @@ import {
 } from 'react-bootstrap'
 import CarouselTop from './components/Carousel'
 import NavbarTop from './components/NavbarTop'
-import Availabilities from './pages/Availabilities'
 import Newuser from './pages/Newuser'
+import Availabilities from './pages/Availabilities'
 import CreateAvailability from './pages/CreateAvailability'
 
 
@@ -65,7 +65,7 @@ class App extends Component {
 										</Col>
 									</Row>
 								</PageHeader>
-								<Newuser name={this.props.userform} onSubmit={this.NewuserSubmit.bind(this)} />
+								<Newuser name={this.props.userform} submitHandler={this.NewuserSubmit.bind(this)} />
 								<Availabilities availabilities={this.state.availabilities} />
 							</Grid>
 						)} />

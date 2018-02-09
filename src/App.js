@@ -10,7 +10,7 @@ import CarouselTop from './components/Carousel'
 import Availabilities from './pages/Availabilities'
 import Newuser from './pages/Newuser'
 import NavbarTop from './components/NavbarTop'
-import CreateLocation from './pages/CreateLocation'
+import NewAvailability from './pages/Newavailability'
 
 
 
@@ -18,7 +18,7 @@ class App extends Component {
 	constructor(props){
     super(props)
     this.state = {
-      locations: [
+      availabilities: [
         {
           id: 1,
           firstName: "fernando",
@@ -65,7 +65,7 @@ class App extends Component {
                       </Col>
                       <Col xs={4}>
                     <small>
-                    <Link to='/locations' id='locations-link'>Availabilities</Link>
+                    <Link to='/availabilities' id='availabilities-link'>Availabilities</Link>
                     </small>
                   </Col>
                 </Row>
@@ -74,13 +74,13 @@ class App extends Component {
             </Grid>
           )} />
 
-				<Route exact path="/locations" render={props => (
+				<Route exact path="/availabilities" render={props => (
           <Grid>
             <PageHeader>
               <Row>
                 <Col xs={8}>
                   SlipList <br />
-                  <small className='subtitle'>Locations</small>
+                  <small className='subtitle'>Availabilities</small>
                 </Col>
                 <Col xs={4}>
                   <small>
@@ -89,7 +89,7 @@ class App extends Component {
                 </Col>
               </Row>
             </PageHeader>
-						<CreateLocation name={this.props.locationform}/>
+						<NewAvailability name={this.props.locationform}/>
           </Grid>
         )} />
 

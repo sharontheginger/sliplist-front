@@ -33,7 +33,7 @@ it('Availabilities renders without crashing', () => {
 })
 
 it('Renders the availabilities', () => {
-  const component = mount(<Availabilities />)
+  const component = mount(<Availabilities availabilities={availabilities} />)
   const headings = component.find('h4 > .availabilities-firstName')
   expect(headings.length).toBe(3)
 })

@@ -10,11 +10,11 @@ it("renders without crashing", () => {
 
 it("renders a sign up form", ()=>{
   const app = mount(<App />)
-  expect(app.find('.subtitle').text()).toEqual('Sign Up')
+  expect(app.find('.subtitle').text()).toEqual(' Sign Up ')
 })
 
-it("links to location index", ()=>{
+it("links to availabilities index", ()=>{
   const app = mount(<App />)
-  app.find('a#locations-link').simulate('click', {button: 0})
-  expect(app.find('.subtitle').text()).toEqual('Locations')
+  app.find('a#availabilities-link').simulate('click', {button: 0})
+  expect(app.find('.subtitle').text()).toEqual('Availabilities')
 })

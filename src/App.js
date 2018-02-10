@@ -14,6 +14,7 @@ import CreateAvailability from './pages/CreateAvailability'
 
 
 
+
 class App extends Component {
 	constructor(props){
 		super(props)
@@ -65,7 +66,7 @@ class App extends Component {
 										</Col>
 									</Row>
 								</PageHeader>
-								<Newuser name={this.props.userform} submitHandler={this.NewuserSubmit.bind(this)} />
+								<Newuser name={this.props.userform}  />
 								<Availabilities availabilities={this.state.availabilities} />
 							</Grid>
 						)} />

@@ -8,9 +8,10 @@ import {
 } from 'react-bootstrap'
 import CarouselTop from './components/Carousel'
 import NavbarTop from './components/NavbarTop'
-import Availabilities from './pages/Availabilities'
 import Newuser from './pages/Newuser'
-import CreateLocation from './pages/CreateLocation'
+import Availabilities from './pages/Availabilities'
+import CreateAvailability from './pages/CreateAvailability'
+
 
 
 
@@ -44,16 +45,20 @@ class App extends Component {
 		}
 	}
 
+	NewuserSubmit(){
+
+	}
+
 	render() {
 		return (
 			<Router>
 				<div>
 					<NavbarTop />
-					<CarouselTop />
 					<div>
 						<Route exact path="/" render={props => (
 							<Grid>
 								<PageHeader>
+								<CarouselTop />
 									<Row>
 										<Col xs={8}>
 											SlipList
@@ -65,7 +70,7 @@ class App extends Component {
 										</Col>
 									</Row>
 								</PageHeader>
-								<Newuser name={this.props.userform}/>
+								<Newuser onSubmit={this.NewuserSubmit.bind(this)} errors={this.state.errors && this.state.errors.validations} />
 								<Availabilities availabilities={this.state.availabilities} />
 							</Grid>
 						)} />
@@ -79,7 +84,7 @@ class App extends Component {
 											<small className='subtitle'>please sign up to contact owner</small>
 										</Col>
 										<Col xs={4}>
-											<small> <Link to='/' id='createLocation-link'>Sign Up</Link> </small>
+											<small> <Link to='/' id='createavailabity-link'> Home </Link></small>
 										</Col>
 									</Row>
 								</PageHeader>
@@ -87,7 +92,7 @@ class App extends Component {
 							</Grid>
 						)} />
 
-						<Route exact path="/createLocation" render={props => (
+					<Route exact path="/createavailability" render={props => (
 							<Grid>
 								<PageHeader>
 								<Row>
@@ -101,7 +106,7 @@ class App extends Component {
 									</Col>
 								</Row>
 								</PageHeader>
-								<Availabilities availabilities={this.state.availabilities} />
+								<CreateAvailability createavailability={this.state.createavailability} />
 							</Grid>
 						)} />
 

@@ -11,7 +11,7 @@ import {
 } from 'react-bootstrap'
 
 
-class NewAvailability extends Component {
+class CreateAvailability extends Component {
 	constructor(props){
   super(props)
   this.state = {
@@ -88,4 +88,4 @@ handleChange(event){
     }
   }
 
-export default NewAvailability
+export default CreateAvailability

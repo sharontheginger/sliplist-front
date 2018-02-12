@@ -4,8 +4,7 @@ import App from '../App';
 import { mount } from 'enzyme'
 
 it("renders without crashing", () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  const app = mount(<App />)
 });
 
 it("renders a sign up form", ()=>{
@@ -16,5 +15,5 @@ it("renders a sign up form", ()=>{
 it("links to availabilities index", ()=>{
   const app = mount(<App />)
   app.find('a#availabilities-link').simulate('click', {button: 0})
-  expect(app.find('.subtitle').text()).toEqual('Availabilities')
+  expect(app.find('.subtitle').text()).toEqual('please sign up to contact owner')
 })

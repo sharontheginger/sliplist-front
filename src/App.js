@@ -45,6 +45,10 @@ class App extends Component {
 		}
 	}
 
+	NewuserSubmit(){
+
+	}
+
 	render() {
 		return (
 			<Router>
@@ -66,7 +70,7 @@ class App extends Component {
 										</Col>
 									</Row>
 								</PageHeader>
-								<Newuser name={this.props.userform}  />
+								<Newuser onSubmit={this.NewuserSubmit.bind(this)} errors={this.state.errors && this.state.errors.validations} />
 								<Availabilities availabilities={this.state.availabilities} />
 							</Grid>
 						)} />

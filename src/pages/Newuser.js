@@ -16,7 +16,6 @@ import {
 class Newuser extends Component {
 	constructor(props){
   super(props)
-
   this.state = {
     userform:{
       firstName: '',
@@ -45,6 +44,7 @@ errorsFor(attribute){
       errorString = errors.map(error => error.msg ).join(", ")
     }
   }
+  console.log(errorString);
   return errorString === "" ? null : errorString
 }
 
@@ -64,14 +64,14 @@ errorsFor(attribute){
           <Col xs={6}>
             <FormGroup
               id="firstName-form-group"
-              validationsState={this.errorsFor('firstName') && 'error'}>
+              validationState={this.errorsFor('firstName') && 'error'}>
               <ControlLabel id="firstName">First Name</ControlLabel>
               <FormControl
 		           type="string"
 		           name="firstName"
                placeholder='First Name'
+               value={this.state.userform.firstName}
 		           onChange={this.handleChange.bind(this)}
-	  		       value={this.state.userform.firstName}
  		  	      />
               {this.errorsFor('firstName') &&
                 <HelpBlock id="firstName-help-block">{this.errorsFor('firstName')}</HelpBlock>

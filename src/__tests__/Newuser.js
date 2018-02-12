@@ -74,7 +74,7 @@ it("highlights first name input when there is an error", ()=>{
   const mockSubmitHandler = jest.fn()
   const validationErrors = [
     {
-      param: 'name',
+      param: 'firstName',
       msg: 'Is required.'
     }
   ]
@@ -92,19 +92,19 @@ it("shows help message for first name when there is an error", ()=>{
   const mockSubmitHandler = jest.fn()
   const validationErrors = [
     {
-      param: 'name',
+      param: 'firstName',
       msg: 'Is required.'
     }
   ]
   const component = mount(<Newuser onSubmit={mockSubmitHandler} errors={validationErrors}/>)
-  expect(component.find("#name-help-block").length).toBe(1)
+  expect(component.find("#firstName-help-block").length).toBe(1)
 })
 
 it("highlights last name input when there is an error", ()=>{
   const mockSubmitHandler = jest.fn()
   const validationErrors = [
     {
-      param: 'name',
+      param: 'lastName',
       msg: 'Is required.'
     }
   ]
@@ -122,7 +122,7 @@ it("shows help message for last name when there is an error", ()=>{
   const mockSubmitHandler = jest.fn()
   const validationErrors = [
     {
-      param: 'name',
+      param: 'lastName',
       msg: 'Is required.'
     }
   ]
@@ -134,7 +134,7 @@ it("highlights email input when there is an error", ()=>{
   const mockSubmitHandler = jest.fn()
   const validationErrors = [
     {
-      param: 'name',
+      param: 'email',
       msg: 'Is required.'
     }
   ]
@@ -152,7 +152,7 @@ it("shows help message for email when there is an error", ()=>{
   const mockSubmitHandler = jest.fn()
   const validationErrors = [
     {
-      param: 'name',
+      param: 'email',
       msg: 'Is required.'
     }
   ]
@@ -164,7 +164,7 @@ it("highlights phone input when there is an error", ()=>{
   const mockSubmitHandler = jest.fn()
   const validationErrors = [
     {
-      param: 'name',
+      param: 'phone',
       msg: 'Is required.'
     }
   ]
@@ -182,7 +182,7 @@ it("shows help message for phone when there is an error", ()=>{
   const mockSubmitHandler = jest.fn()
   const validationErrors = [
     {
-      param: 'name',
+      param: 'phone',
       msg: 'Is required.'
     }
   ]

@@ -17,7 +17,7 @@ class Newuser extends Component {
 	constructor(props){
   super(props)
   this.state = {
-    userform:{
+    form:{
       firstName: '',
       lastName: '',
   	  email: '',
@@ -26,14 +26,23 @@ class Newuser extends Component {
   }
 }
 
-handleChange(event){
-  const formState = Object.assign({}, this.state.form)
-  formState[event.target.name] = event.target.value
-  this.setState({userform: formState})
+handleChange(e){
+  const { form } = this.state
+
+  form[e.target.name] = e.target.value
+
+  this.setState({form: form})
 }
 
 handleSubmit() {
-  this.props.onSubmit(this.state.userform)
+  const { onSubmit } = this.props
+  const { form } = this.state
+
+  if(onSubmit) {
+    onSubmit(form)
+  } else {
+    console.log("no onSubmit function provided");
+  }
 }
 
 errorsFor(attribute){
@@ -70,8 +79,8 @@ errorsFor(attribute){
 		           type="string"
 		           name="firstName"
                placeholder='First Name'
-               value={this.state.userform.firstName}
 		           onChange={this.handleChange.bind(this)}
+	  		       value={this.state.form.firstName}
  		  	      />
               {this.errorsFor('firstName') &&
                 <HelpBlock id="firstName-help-block">{this.errorsFor('firstName')}</HelpBlock>
@@ -91,7 +100,7 @@ errorsFor(attribute){
         			  name="lastName"
                 placeholder='Last Name'
         			  onChange={this.handleChange.bind(this)}
-          	  	value={this.state.userform.lastName}
+          	  	value={this.state.form.lastName}
                 />
               {this.errorsFor('lastName') &&
                   <HelpBlock id="lastName-help-block">{this.errorsFor('lastName')}</HelpBlock>
@@ -111,7 +120,7 @@ errorsFor(attribute){
       			  name="email"
               placeholder='example@example.com'
       			  onChange={this.handleChange.bind(this)}
-        	  	value={this.state.userform.email}
+        	  	value={this.state.form.email}
               />
             {this.errorsFor('email') &&
                 <HelpBlock id="email-help-block">{this.errorsFor('email')}</HelpBlock>
@@ -131,7 +140,7 @@ errorsFor(attribute){
           			  name="phone"
                   placeholder='619-555-1212'
           			  onChange={this.handleChange.bind(this)}
-            	  	value={this.state.userform.phone}
+            	  	value={this.state.form.phone}
                   />
                 {this.errorsFor('phone') &&
                     <HelpBlock id="phone-help-block">{this.errorsFor('phone')}</HelpBlock>

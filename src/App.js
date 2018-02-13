@@ -11,14 +11,17 @@ import NavbarTop from './components/NavbarTop'
 import Newuser from './pages/Newuser'
 import Availabilities from './pages/Availabilities'
 import CreateAvailability from './pages/CreateAvailability'
+import GoogleApiWrapper from './components/mapcontainer'
 
 
-
+const API = "http://127.0.0.1:3001"
 
 class App extends Component {
 	constructor(props){
 		super(props)
 		this.state = {
+			apiUrl: "https://maps.googleapis.com/maps/api/js?key=AIzaSyAPHEKTmg_-2YGuO7CSoQgw-nunhQL7xTM&callback=initMap",
+			errors: [],
 			availabilities: [
 				{
 					id: 1,
@@ -45,7 +48,9 @@ class App extends Component {
 		}
 	}
 
+
 	NewuserSubmit(){
+
 
 	}
 
@@ -70,6 +75,7 @@ class App extends Component {
 										</Col>
 									</Row>
 								</PageHeader>
+
 								<Newuser onSubmit={this.NewuserSubmit.bind(this)} errors={this.state.errors && this.state.errors.validations} />
 								<Availabilities availabilities={this.state.availabilities} />
 							</Grid>
@@ -109,6 +115,7 @@ class App extends Component {
 								<CreateAvailability createavailability={this.state.createavailability} />
 							</Grid>
 						)} />
+						<GoogleApiWrapper />
 
 					</div>
 				</div>
@@ -118,3 +125,26 @@ class App extends Component {
 }
 
 export default App;
+
+function createUser(form) {
+	console.log(form)
+
+	const { firstName, lastName, email, phone } = form
+
+	fetch(`${API}/users`, {
+		method: 'POST',
+		headers: {
+			'content-type': 'application/json'
+		},
+		body: JSON.stringify({
+			firstName: firstName,
+			lastName: lastName,
+			email: email,
+			phone: phone,
+		})
+	}).then((resp) => resp.json())
+	.then((data) => {
+		console.log("got response:");
+		console.log(data);
+	})
+}

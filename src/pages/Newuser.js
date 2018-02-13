@@ -14,7 +14,6 @@ import {
 class Newuser extends Component {
 	constructor(props){
   super(props)
-
   this.state = {
     form:{
       firstName: '',
@@ -53,6 +52,7 @@ errorsFor(attribute){
       errorString = errors.map(error => error.msg ).join(", ")
     }
   }
+  console.log(errorString);
   return errorString === "" ? null : errorString
 }
 

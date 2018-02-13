@@ -67,6 +67,7 @@ class App extends Component {
 
 
 
+
 	render() {
 		return (
 			<Router>
@@ -88,6 +89,7 @@ class App extends Component {
 										</Col>
 									</Row>
 								</PageHeader>
+
 								<Newuser onSubmit={this.handleNewuser.bind(this)}
     						errors={this.state.errors && this.state.errors.validations} />
 							{this.state.newUserSuccess &&

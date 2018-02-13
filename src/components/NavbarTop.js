@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import {
-  Grid,
-  PageHeader,
-  Row,
-  Col,
   Navbar,
   Nav,
   NavItem,

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {
   Button,
-  Grid,
-  PageHeader,
   Row,
   Col,
   FormGroup,
@@ -21,6 +19,7 @@ class Newuser extends Component {
       firstName: '',
       lastName: '',
   	  email: '',
+      password: '',
       phone: ''
     }
   }
@@ -124,6 +123,26 @@ errorsFor(attribute){
               />
             {this.errorsFor('email') &&
                 <HelpBlock id="email-help-block">{this.errorsFor('email')}</HelpBlock>
+              }
+            </FormGroup>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col xs={6}>
+            <FormGroup
+              id="password-form-group"
+              validationState={this.errorsFor('password') && 'error'}>
+              <ControlLabel id="password">Password</ControlLabel>
+    			  <FormControl
+      			  type="string"
+      			  name="password"
+              placeholder='password'
+      			  onChange={this.handleChange.bind(this)}
+        	  	value={this.state.form.password}
+              />
+            {this.errorsFor('password') &&
+                <HelpBlock id="password-help-block">{this.errorsFor('password')}</HelpBlock>
               }
             </FormGroup>
           </Col>

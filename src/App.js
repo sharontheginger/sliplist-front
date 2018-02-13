@@ -48,7 +48,9 @@ class App extends Component {
 		}
 	}
 
-	onSubmit() {
+
+	NewuserSubmit(){
+
 
 	}
 
@@ -73,7 +75,8 @@ class App extends Component {
 										</Col>
 									</Row>
 								</PageHeader>
-								<Newuser onSubmit={createUser} errors={this.state.errors} />
+
+								<Newuser onSubmit={this.NewuserSubmit.bind(this)} errors={this.state.errors && this.state.errors.validations} />
 								<Availabilities availabilities={this.state.availabilities} />
 							</Grid>
 						)} />

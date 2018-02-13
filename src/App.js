@@ -14,43 +14,58 @@ import CreateAvailability from './pages/CreateAvailability'
 import GoogleApiWrapper from './components/mapcontainer'
 
 
-const API = "http://127.0.0.1:3001"
 
 class App extends Component {
 	constructor(props){
 		super(props)
 		this.state = {
-			apiUrl: "https://maps.googleapis.com/maps/api/js?key=AIzaSyAPHEKTmg_-2YGuO7CSoQgw-nunhQL7xTM&callback=initMap",
-			errors: [],
-			availabilities: [
-				{
-					id: 1,
-					firstName: "fernando",
-					lastName: "fonzu",
-					email: "mandrid@yahoo.com",
-					phone: "619-244-3434"
-				},
-				{
-					id: 2,
-					firstName: "orlando",
-					lastName: "fuji",
-					email: "landri@yahoo.com",
-					phone: "619-244-2334"
-				},
-				{
-					id: 3,
-					firstName: "bob",
-					lastName: "tonhy",
-					email: "bob21@yahoo.com",
-					phone: "619-244-2112"
-				},
-			]
+			googleAPI: "https://maps.googleapis.com/maps/api/js?key=AIzaSyAPHEKTmg_-2YGuO7CSoQgw-nunhQL7xTM&callback=initMap",
+			errors: null,
+			apiUrl: "http://localhost:3000",
+			users: [],
+    	newUserSuccess: false,
 		}
 	}
 
-	onSubmit() {
+	componentWillMount(){
+  fetch(`${this.state.apiUrl}/users`)
+  .then((rawResponse) =>{
+    return rawResponse.json()
+  })
+  .then((parsedResponse)=>{
+    this.setState({users: parsedResponse.users})
+  })
+}
 
-	}
+	handleNewuser(params){
+    fetch(`${this.state.apiUrl}/users`,
+      {
+        body: JSON.stringify(params),  // <- we need to stringify the json for fetch
+        headers: {  // <- We specify that we're sending JSON, and expect JSON back
+          'Content-Type': 'application/json'
+        },
+        method: "POST"  // <- Here's our verb, so the correct endpoint is invoked on the server
+      }
+    )
+    .then((rawResponse)=>{
+      return rawResponse.json()
+    })
+    .then((parsedResponse) =>{
+      if(parsedResponse.errors){ // <- Check for any server side errors
+        this.setState({errors: parsedResponse.errors})
+      }else{
+        const users = Object.assign([], this.state.users)
+        users.push(parsedResponse.user) // <- Add the new cat to our list of users
+        this.setState({
+          users: users,  // <- Update cats in state
+          errors: null, // <- Clear out any errors if they exist
+					newUserSuccess: true
+        })
+      }
+    })
+  }
+
+
 
 	render() {
 		return (
@@ -73,7 +88,11 @@ class App extends Component {
 										</Col>
 									</Row>
 								</PageHeader>
-								<Newuser onSubmit={createUser} errors={this.state.errors} />
+								<Newuser onSubmit={this.handleNewuser.bind(this)}
+    						errors={this.state.errors && this.state.errors.validations} />
+							{this.state.newUserSuccess &&
+	      			<Redirect to="/" />
+	    				}
 								<Availabilities availabilities={this.state.availabilities} />
 							</Grid>
 						)} />
@@ -122,26 +141,3 @@ class App extends Component {
 }
 
 export default App;
-
-function createUser(form) {
-	console.log(form)
-
-	const { firstName, lastName, email, phone } = form
-
-	fetch(`${API}/users`, {
-		method: 'POST',
-		headers: {
-			'content-type': 'application/json'
-		},
-		body: JSON.stringify({
-			firstName: firstName,
-			lastName: lastName,
-			email: email,
-			phone: phone,
-		})
-	}).then((resp) => resp.json())
-	.then((data) => {
-		console.log("got response:");
-		console.log(data);
-	})
-}

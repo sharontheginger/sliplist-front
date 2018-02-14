@@ -13,25 +13,26 @@ import {
 
 class Newuser extends Component {
 	constructor(props){
-  super(props)
-  this.state = {
-    form:{
-      firstName: '',
-      lastName: '',
-  	  email: '',
-      password: '',
-      phone: ''
-    }
-  }
-}
+		super(props)
 
-handleChange(e){
-  const { form } = this.state
+		this.state = {
+			form: {
+				firstName: '',
+				lastName: '',
+				email: '',
+				password: '',
+				phone: ''
+			}
+		}
+	}
 
-  form[e.target.name] = e.target.value
+	handleChange(e){
+		const { form } = this.state
 
-  this.setState({form: form})
-}
+		form[e.target.name] = e.target.value
+
+		this.setState({form: form})
+	}
 
 handleSubmit() {
   const { onSubmit } = this.props
@@ -117,7 +118,7 @@ errorsFor(attribute){
     			  <FormControl
       			  type="string"
       			  name="email"
-              placeholder='example@example.com'
+	              placeholder='example@example.com'
       			  onChange={this.handleChange.bind(this)}
         	  	value={this.state.form.email}
               />

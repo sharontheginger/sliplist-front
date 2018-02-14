@@ -23,19 +23,23 @@ class App extends Component {
 			errors: null,
 			apiUrl: "http://localhost:3000",
 			users: [],
-    	newUserSuccess: false,
+	    	newUserSuccess: false,
 		}
 	}
 
-	componentWillMount(){
-  fetch(`${this.state.apiUrl}/users`)
-  .then((rawResponse) =>{
-    return rawResponse.json()
-  })
-  .then((parsedResponse)=>{
-    this.setState({users: parsedResponse.users})
-  })
-}
+	componentWillMount() {
+
+	}
+
+	getUsers() {
+		fetch(`${this.state.apiUrl}/users`)
+		.then((raw) => {
+			return raw.json()
+		})
+		.then((res) => {
+			this.setState({users: res.users})
+		})
+	}
 
 	handleNewuser(params){
     fetch(`${this.state.apiUrl}/users`,

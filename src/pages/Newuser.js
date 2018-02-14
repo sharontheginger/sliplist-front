@@ -17,8 +17,8 @@ class Newuser extends Component {
 
 		this.state = {
 			form: {
-				firstName: '',
-				lastName: '',
+				firstname: '',
+				lastname: '',
 				email: '',
 				password: '',
 				phone: ''
@@ -72,18 +72,18 @@ errorsFor(attribute){
         <Row>
           <Col xs={6}>
             <FormGroup
-              id="firstName-form-group"
-              validationState={this.errorsFor('firstName') && 'error'}>
-              <ControlLabel id="firstName">First Name</ControlLabel>
+              id="firstname-form-group"
+              validationState={this.errorsFor('firstname') && 'error'}>
+              <ControlLabel id="firstname">First Name</ControlLabel>
               <FormControl
 		           type="string"
-		           name="firstName"
+		           name="firstname"
                placeholder='First Name'
 		           onChange={this.handleChange.bind(this)}
-	  		       value={this.state.form.firstName}
+	  		       value={this.state.form.firstname}
  		  	      />
-              {this.errorsFor('firstName') &&
-                <HelpBlock id="firstName-help-block">{this.errorsFor('firstName')}</HelpBlock>
+              {this.errorsFor('firstname') &&
+                <HelpBlock id="firstname-help-block">{this.errorsFor('firstname')}</HelpBlock>
               }
             </FormGroup>
           </Col>
@@ -92,18 +92,18 @@ errorsFor(attribute){
         <Row>
           <Col xs={6}>
             <FormGroup
-              id="lastName-form-group"
-              validationState={this.errorsFor('lastName') && 'error'}>
-              <ControlLabel id="lastName">Last Name</ControlLabel>
+              id="lastname-form-group"
+              validationState={this.errorsFor('lastname') && 'error'}>
+              <ControlLabel id="lastname">Last Name</ControlLabel>
       			  <FormControl
-        			  type="string"
-        			  name="lastName"
-                placeholder='Last Name'
-        			  onChange={this.handleChange.bind(this)}
-          	  	value={this.state.form.lastName}
+        			  	type="string"
+        			  	name="lastname"
+                		placeholder='Last Name'
+        			  	onChange={this.handleChange.bind(this)}
+          	  			value={this.state.form.lastname}
                 />
-              {this.errorsFor('lastName') &&
-                  <HelpBlock id="lastName-help-block">{this.errorsFor('lastName')}</HelpBlock>
+              {this.errorsFor('lastname') &&
+                  <HelpBlock id="lastname-help-block">{this.errorsFor('lastname')}</HelpBlock>
                 }
             </FormGroup>
           </Col>
@@ -136,9 +136,9 @@ errorsFor(attribute){
               validationState={this.errorsFor('password') && 'error'}>
               <ControlLabel id="password">Password</ControlLabel>
     			  <FormControl
-      			  type="string"
+      			  type="password"
       			  name="password"
-              placeholder='password'
+              placeholder='Password'
       			  onChange={this.handleChange.bind(this)}
         	  	value={this.state.form.password}
               />

@@ -201,7 +201,7 @@ class App extends Component {
 										<Col xs={8}>
 											 <br />
 											 <br />
-											<small className='subtitle'>Please enter your log in information below. </small>
+											<small className='subtitle'>Please enter your login information below. </small>
 										</Col>
 										<Col xs={4}>
 

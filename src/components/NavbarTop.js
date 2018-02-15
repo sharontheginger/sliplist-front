@@ -12,11 +12,13 @@ class NavbarTop extends Component {
   render() {
     return (
       <div>
-        <div>
-            <Navbar inverse collapseOnSelect>
+        <div className="navbar-fixed-top">
+            <Navbar  inverse collapseOnSelect>
               <Navbar.Header>
-                <Navbar.Brand>
-                  <a href='/'>Slip List</a>
+			    <img  className='navbar-brand' src='https://upload.wikimedia.org/wikipedia/commons/b/be/USNA%2C_OCS%2C_and_NROTC_anchor.png'alt="big ole' titles"/>
+
+				  <Navbar.Brand>
+				  <a href='/'>Slip List</a>
                 </Navbar.Brand>
                 <Navbar.Toggle />
               </Navbar.Header>

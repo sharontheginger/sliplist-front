@@ -5,6 +5,7 @@ export class MapContainer extends Component {
 	constructor(props) {
     super(props);
     this.state = {
+		availabilities:[],
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
@@ -32,11 +33,11 @@ onMapClicked = (props)=> {
 
 render() {
     return (
-      <Map google={this.props.google} initialCenter={{
+      <Map  id="map" google={this.props.google} initialCenter={{
           lat:32.7157,
           lng:-117.1611
         }}
-      style={{width: '100%', height: '100%', position: 'absolute'}}
+      style={{width: '75%', height: '60%', position: 'absolute'}}
       className={'map'}
       zoom={13}>
     <Marker
@@ -48,11 +49,11 @@ render() {
       position={{lat: 32.709925, lng: -117.231824}} />
     <Marker />
       <Marker
-        name={'Embarcadero mooring field'}
+        name={'Embarcadero Mooring field'}
         position={{lat: 32.726191, lng: -117.176331}} />
       <Marker />
     <Marker
-      name={'Bridge mooring field'}
+      name={'Bridge Mooring field'}
       position={{lat: 32.688582, lng: -117.162332}}
        />
        <Marker onMouseover={this.onMouseoverMarker}

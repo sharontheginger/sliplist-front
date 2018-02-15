@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import {
   Button,
@@ -34,28 +35,28 @@ class Newuser extends Component {
 		this.setState({form: form})
 	}
 
-handleSubmit() {
-  const { onSubmit } = this.props
-  const { form } = this.state
+	handleSubmit() {
+	  const { onSubmit } = this.props
+	  const { form } = this.state
 
-  if(onSubmit) {
-    onSubmit(form)
-  } else {
-    console.log("no onSubmit function provided");
-  }
-}
+	  if(onSubmit) {
+	    onSubmit(form)
+	  } else {
+	    console.log("no onSubmit function provided");
+	  }
+	}
 
-errorsFor(attribute){
-  var errorString = ""
-  if(this.props.errors){
-    const errors = this.props.errors.filter(error => error.param === attribute )
-    if(errors){
-      errorString = errors.map(error => error.msg ).join(", ")
-    }
-  }
-  console.log(errorString);
-  return errorString === "" ? null : errorString
-}
+	errorsFor(attribute){
+	  var errorString = ""
+	  if(this.props.errors){
+	    const errors = this.props.errors.filter(error => error.param === attribute )
+	    if(errors){
+	      errorString = errors.map(error => error.msg ).join(", ")
+		    }
+		  }
+	  console.log(errorString);
+	  return errorString === "" ? null : errorString
+	}
 
 	render() {
       return (

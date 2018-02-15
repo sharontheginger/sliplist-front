@@ -14,9 +14,10 @@ class CreateAvailability extends Component {
   super(props)
   this.state = {
     locationform:{
-      owner: '',
-      location: '',
-	  description: ''
+    	loa:"",
+		kind:"",
+		location:"",
+		description:""
     }
   }
 }
@@ -27,6 +28,17 @@ handleChange(event){
   this.setState({locationform: formState})
 }
 
+handleSubmit() {
+  const { onSubmit } = this.props
+  const { locationform } = this.state
+
+  if(onSubmit) {
+	onSubmit(locationform)
+  } else {
+	console.log("no onSubmit function provided");
+  }
+}
+
 	render() {
       return (
 		  <form>
@@ -34,50 +46,71 @@ handleChange(event){
         <Row>
           <Col xs={6}>
             <FormGroup>
-              <ControlLabel id="owner">Owner</ControlLabel>
+              <ControlLabel id="loa">Length Over All</ControlLabel>
               <FormControl
 			  type="string"
-			  name="owner"
-        placeholder="Owner"
+			  name="loa"
+        	  placeholder="25 feet"
 			  onChange={this.handleChange.bind(this)}
-  	  		  value={this.state.locationform.owner}
+  	  		  value={this.state.locationform.loa}
  		  	/>
             </FormGroup>
           </Col>
         </Row>
 
-        <Row>
+
+		<Row>
           <Col xs={6}>
             <FormGroup>
-              <ControlLabel id="location">Location</ControlLabel>
+              <ControlLabel id="type">Type</ControlLabel>
 			  <FormControl
 			  type="string"
-			  name="location"
-        placeholder="Location"
+			  name="kind"
+        	  placeholder="Slip or Mooring ball etc."
 			  onChange={this.handleChange.bind(this)}
-  	  		  value={this.state.locationform.location}
+  	  		  value={this.state.locationform.kind}
  		  	/>
             </FormGroup>
           </Col>
         </Row>
 
 		<Row>
-          <Col xs={6}>
-            <FormGroup>
-              <ControlLabel id="description">Description</ControlLabel>
-			  <FormControl
-			  type="string"
-			  name="description"
-        placeholder="Description"
-			  onChange={this.handleChange.bind(this)}
-  	  		  value={this.state.locationform.description}
- 		  	/>
-            </FormGroup>
-          </Col>
-        </Row>
+			<Col xs={6}>
+				<FormGroup>
+					<ControlLabel id="location">Location</ControlLabel>
+						<FormControl
+						type="string"
+						name="location"
+						placeholder="Location"
+						onChange={this.handleChange.bind(this)}
+						value={this.state.locationform.location}
+						/>
+				</FormGroup>
+			</Col>
+		</Row>
+
+		<Row>
+			<Col xs={6}>
+				<FormGroup>
+					<ControlLabel id="Description">Description</ControlLabel>
+						<FormControl
+						type="textarea"
+						name="description"
+						placeholder="A description of additional information the renter might need"
+						componentClass="textarea"
+						onChange={this.handleChange.bind(this)}
+						value={this.state.locationform.description}
+						/>
+				</FormGroup>
+			</Col>
+		</Row>
+
 		<Row>
           <Col xs={6}>
-            <Button id="submit">Create Availability</Button>
+            <Button id="submit"
+			onClick={this.handleSubmit.bind(this)}>
+			Create Availability
+			</Button>
           </Col>
         </Row>
 

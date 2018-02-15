@@ -8,7 +8,7 @@ import {
 
 class Availabilities extends Component {
   render() {
-    let avails = this.props.availabilities || []
+    let avails = this.props.availabilities
 
     // this is the long-hand version of the above
     // let avails;
@@ -22,24 +22,24 @@ class Availabilities extends Component {
       <Row>
         <Col xs={12}>
           <ListGroup>
-            {avails.map((a, index) => {
+            {avails.map((avail, index) => {
               return (
                 <ListGroupItem
                   key={index}
                   header={
                     <h4>
-                      <span className='availabilities-firstName'>
-                        {a.firstName}
+                      <span className='availabilities-loa'>
+                        {avail.loa}
                       </span>
-                      - <span className='availabilities-lastName'>{a.lastName}</span>
+                      - <span className='availabilities-kind'>{avail.kind}</span>
                     </h4>
                   }>
-                  <span className='availabilities-email'>
-                    {a.email}
+                  <span className='availabilities-location'>
+                    {avail.location}
                   </span>
 				  <br />
-				  <span className='availabilities-phone'>
-                    {a.phone}
+				  <span className='availabilities-description'>
+                    {avail.description}
                   </span>
                 </ListGroupItem>
               )

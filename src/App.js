@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Link, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import {
 	Col,
 	Row,
@@ -24,12 +24,31 @@ class App extends Component {
 			errors: null,
 			users: [],
 	    	newUserSuccess: false,
+			isLoggedIn: false,
+			logOutSuccess: false,
+		 	logInSuccess: false
 		}
 	}
 
-	componentWillMount() {
 
+	loggedIn() {
+		if(localStorage.getItem('authToken') != null) {
+		this.setState({isLoggedIn: true})
+		}
 	}
+
+	logOut() {
+		localStorage.removeItem('authToken')
+		this.setState({isLoggedIn: false, logOutSuccess: true})
+	}
+
+	componentWillMount(){
+		if(localStorage.getItem('authToken') != null) {
+					  this.setState({isLoggedIn: true})
+				  } else {
+					  this.setState({isLoggedIn: false})
+				  }
+			  }
 
 	getUsers() {
 		fetch(`${apiUrl}/users`)
@@ -63,11 +82,47 @@ class App extends Component {
         this.setState({
           users: users,  // <- Update cats in state
           errors: null, // <- Clear out any errors if they exist
-					newUserSuccess: true
-        })
-      }
-    })
-  }
+					newUserSuccess: true,
+					isLoggedIn: true
+	        })
+				console.log(this.state.user)
+				localStorage.setItem('authToken', this.state.user[0].authToken)
+	      }
+	  }).catch(function() {
+		  console.log('could not save new user')
+	  })
+	}
+
+	handleExistingUser(params) {
+		fetch(`${apiUrl}/login`,
+			{
+				body:JSON.stringify(params),
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				method: "POST"
+			}).then((rawResponse) => {
+				return rawResponse.json()
+			}).then((parsedResponse) => {
+				if(parsedResponse.errors){
+					this.setState({errors: parsedResponse.errors})
+					console.log(this.state.errors)
+				} else {
+					const user = Object.assign([], this.state.user)
+					user.push(parsedResponse.user)
+					this.setState({
+						user: user,  // <- Update users in state
+						errors: null, // <- Clear out any errors if they exist
+						logInSuccess: true, // <- This is the new flag in state
+						isLoggedIn: true
+					  })
+					  console.log(this.state.user)
+					  localStorage.setItem('authToken', this.state.user[0].authToken)
+				}
+			}).catch(function() {
+				console.log('could not save new user')
+			})
+		}
 
 
 
@@ -152,8 +207,13 @@ class App extends Component {
 
 										</Col>
 									</Row>
-									<Login/>
-								<Availabilities availabilities={this.state.availabilities} />
+									<Login
+										onSubmit={this.handleExistingUser.bind(this)}
+										errors={this.state.errors && (this.state.errors.validations || this.state.errors.serverValidations)}
+									/>
+									{this.state.logInSuccess && <Redirect to="/" />
+									}
+
 								</PageHeader>
 							</Grid>
 						)} />

@@ -24,7 +24,13 @@ class App extends Component {
 			googleAPI: "https://maps.googleapis.com/maps/api/js?key=AIzaSyAPHEKTmg_-2YGuO7CSoQgw-nunhQL7xTM&callback=initMap",
 			errors: null,
 			users: [],
-			newUserSuccess: false,
+
+			
+
+		availabilities:[],
+	    	newUserSuccess: false,
+			newAvailSuccess: false,
+ 
 			isLoggedIn: false,
 			logOutSuccess: false,
 			logInSuccess: false
@@ -50,6 +56,8 @@ class App extends Component {
 			this.setState({isLoggedIn: false})
 		}
 	}
+
+
 
 	getUsers() {
 		fetch(`${apiUrl}/users`)
@@ -92,6 +100,37 @@ class App extends Component {
 			console.log('could not save new user')
 		})
 	}
+
+	handleNewAvail(params){
+	fetch(`${apiUrl}/availabilities`,
+	  {
+		body: JSON.stringify(params),  // <- we need to stringify the json for fetch
+		headers: {  // <- We specify that we're sending JSON, and expect JSON back
+		  'Content-Type': 'application/json'
+		},
+		method: "POST"  // <- Here's our verb, so the correct endpoint is invoked on the server
+	  }
+	)
+	.then((rawResponse)=>{
+	  return rawResponse.json()
+	})
+	.then((parsedResponse) =>{
+	  if(parsedResponse.errors){ // <- Check for any server side errors
+		this.setState({errors: parsedResponse.errors})
+	  }else{
+		const avails = Object.assign([], this.state.availabilities)
+		avails.push(parsedResponse.available) // <- Add the new cat to our list of users
+		this.setState({
+		  avails: avails,  // <- Update cats in state
+		  errors: null, // <- Clear out any errors if they exist
+					newAvailSuccess: true,
+			})
+		  }
+	  })
+	}
+
+
+
 
 	handleExistingUser(params) {
 		fetch(`${apiUrl}/login`,{
@@ -178,6 +217,7 @@ class App extends Component {
 							</Grid>
 						)} />
 
+
 						<Route exact path="/createavailability" render={props => (
 							<Grid>
 								<PageHeader>
@@ -187,8 +227,9 @@ class App extends Component {
 											<small className='subtitle'> Welcome</small>
 										</Col>
 									</Row>
+
 								</PageHeader>
-								<CreateAvailability createavailability={this.state.createavailability} />
+								<CreateAvailability onSubmit={this.handleNewAvail.bind(this)} />
 							</Grid>
 						)} />
 

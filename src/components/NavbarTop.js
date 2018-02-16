@@ -25,7 +25,7 @@ class NavbarTop extends Component {
               <Navbar.Collapse>
                 <Nav>
                   <NavDropdown eventKey={3} title="Actions" id="basic-nav-dropdown">
-                    <MenuItem eventKey={3.1} href='/createavailability' >Create Availability</MenuItem>
+                    <MenuItem eventKey={3.1} href='/availabilities/new' >Create Availability</MenuItem>
                     <MenuItem eventKey={3.2} href="/availabilities" >See all Availabilities</MenuItem>
                     <MenuItem divider />
                     <MenuItem eventKey={3.3} href='/'>Home</MenuItem>
@@ -35,7 +35,9 @@ class NavbarTop extends Component {
                   <NavItem eventKey={1} href="/">
                     Sign Up
                   </NavItem>
+
                   <NavItem eventKey={2} href="/signin">
+
                     Sign In
                   </NavItem>
                 </Nav>

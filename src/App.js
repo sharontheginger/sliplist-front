@@ -25,12 +25,12 @@ class App extends Component {
 			errors: null,
 			users: [],
 
-			
+
 
 		availabilities:[],
 	    	newUserSuccess: false,
 			newAvailSuccess: false,
- 
+
 			isLoggedIn: false,
 			logOutSuccess: false,
 			logInSuccess: false
@@ -168,19 +168,23 @@ class App extends Component {
 	render() {
 		return (
 			<Router>
-				<div>
-					<NavbarTop />
-					<div>
+			<div >
+<div>
+<NavbarTop />
 						<Route exact path="/" render={props => (
 							<Grid>
 								<PageHeader>
 									<CarouselTop />
-									<Row>
-										<Col xs={8}>
-											<small className='subtitle'> Sign Up </small>
-										</Col>
-									</Row>
+
 								</PageHeader>
+
+								<h1  className='subtitle'>
+								Sign Up
+								</h1>
+								<h1  className='subtitle2'>
+								Sign In
+								</h1>
+
 								<div className="flex">
 
 
@@ -198,11 +202,13 @@ class App extends Component {
 
 								</div>
 								</div>
-								<GoogleApiWrapper />
+
+
 							</Grid>
 
 
 						)} />
+						<GoogleApiWrapper />
 
 						<Route exact path="/availabilities" render={props => (
 							<Grid>
@@ -244,7 +250,7 @@ class App extends Component {
 								</PageHeader>
 							</Grid>
 						)} />
-					</div>
+</div>
 				</div>
 			</Router>
 		);

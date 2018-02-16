@@ -10,15 +10,10 @@ class Availabilities extends Component {
   render() {
     let avails = this.props.availabilities
 
-    // this is the long-hand version of the above
-    // let avails;
-    // if(this.props.availabilities == undefined) {
-    //   avails = []
-    // } else {
-    //   avails = this.props.availabilities
-    // }
+
 
     return (
+
       <Row>
         <Col xs={12}>
           <ListGroup>
@@ -27,26 +22,34 @@ class Availabilities extends Component {
                 <ListGroupItem
                   key={index}
                   header={
-                    <h4>
+					  <h4><strong>Current Availability: </strong></h4>
+					  }>
+					  <div>
                       <span className='availabilities-loa'>
-                        {avail.loa}
+                        <strong>Length Over All: </strong> {avail.loa} feet
                       </span>
-                      - <span className='availabilities-kind'>{avail.kind}</span>
-                    </h4>
-                  }>
+					  <br/>
+                      <span className='availabilities-kind'><strong>Type: </strong> {avail.kind}
+					  </span>
+
+					  </div>
                   <span className='availabilities-location'>
-                    {avail.location}
+                    <strong>Location: </strong>{avail.location}
                   </span>
-				  <br />
+				  <br/>
 				  <span className='availabilities-description'>
-                    {avail.description}
+                    <strong>Description: </strong>{avail.description}
+
                   </span>
+				  <br/>
                 </ListGroupItem>
               )
             })}
           </ListGroup>
+		  <br/>
         </Col>
       </Row>
+
     );
   }
 }

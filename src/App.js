@@ -25,12 +25,10 @@ class App extends Component {
 			errors: null,
 			users: [],
 
-			
-
-		availabilities:[],
+			availabilities:[],
 	    	newUserSuccess: false,
 			newAvailSuccess: false,
- 
+
 			isLoggedIn: false,
 			logOutSuccess: false,
 			logInSuccess: false
@@ -50,12 +48,20 @@ class App extends Component {
 	}
 
 	componentWillMount(){
+		fetch(`${apiUrl}/availabilities`)
+		.then((raw)=>{
+			return raw.json()
+		})
+		.then((res) =>{
+			this.setState({availabilities: res.availabilities})
+		})
 		if(localStorage.getItem('authToken') != null) {
 			this.setState({isLoggedIn: true})
 		} else {
 			this.setState({isLoggedIn: false})
 		}
 	}
+
 
 
 
@@ -78,26 +84,28 @@ class App extends Component {
 		method: "POST"  // <- Here's our verb, so the correct endpoint is invoked on the server
 		}
 		)
-		.then((rawResponse)=>{
-			return rawResponse.json()
+		.then((raw)=>{
+			return raw.json()
 		})
-		.then((parsedResponse) =>{
-			if(parsedResponse.errors){ // <- Check for any server side errors
-				this.setState({errors: parsedResponse.errors})
+		.then((res) =>{
+			if(res.errors){ // <- Check for any server side errors
+				this.setState({errors: res.errors})
 			}else{
-				const users = Object.assign([], this.state.users)
-				users.push(parsedResponse.user) // <- Add the new cat to our list of users
+				const { users } = this.state
+
+				users.push(res.user) // <- Add the new cat to our list of users
+
+				localStorage.setItem('authToken', this.state.user[0].authToken)
+
 				this.setState({
 					users: users,  // <- Update cats in state
 					errors: null, // <- Clear out any errors if they exist
 					newUserSuccess: true,
 					isLoggedIn: true
 				})
-				console.log(this.state.user)
-				localStorage.setItem('authToken', this.state.user[0].authToken)
 			}
-		}).catch(function() {
-			console.log('could not save new user')
+		}).catch((e) => {
+			console.log("error registering:", e);
 		})
 	}
 
@@ -111,22 +119,22 @@ class App extends Component {
 		method: "POST"  // <- Here's our verb, so the correct endpoint is invoked on the server
 	  }
 	)
-	.then((rawResponse)=>{
-	  return rawResponse.json()
-	})
-	.then((parsedResponse) =>{
-	  if(parsedResponse.errors){ // <- Check for any server side errors
-		this.setState({errors: parsedResponse.errors})
-	  }else{
-		const avails = Object.assign([], this.state.availabilities)
-		avails.push(parsedResponse.available) // <- Add the new cat to our list of users
-		this.setState({
-		  avails: avails,  // <- Update cats in state
-		  errors: null, // <- Clear out any errors if they exist
-					newAvailSuccess: true,
+	.then(raw => raw.json())
+	.then((res) => {
+		if(res.errors){ // <- Check for any server side errors
+			this.setState({errors: res.errors})
+		} else {
+			const { availabilities } = this.state
+
+			availabilities.push(res.available) // <- Add the new cat to our list of users
+
+			this.setState({
+			availabilities: availabilities,  // <- Update cats in state
+			errors: null, // <- Clear out any errors if they exist
+			newAvailSuccess: true,
 			})
-		  }
-	  })
+			}
+	})
 	}
 
 
@@ -139,15 +147,15 @@ class App extends Component {
 				'Content-Type': 'application/json'
 			},
 			method: "POST"
-		}).then((rawResponse) => {
-			return rawResponse.json()
-		}).then((parsedResponse) => {
-			if(parsedResponse.errors){
-				this.setState({errors: parsedResponse.errors})
+		}).then((raw) => {
+			return raw.json()
+		}).then((res) => {
+			if(res.errors){
+				this.setState({errors: res.errors})
 				console.log(this.state.errors)
 			} else {
 				const user = Object.assign([], this.state.user)
-				user.push(parsedResponse.user)
+				user.push(res.user)
 				this.setState({
 					user: user,  // <- Update users in state
 					errors: null, // <- Clear out any errors if they exist
@@ -187,14 +195,14 @@ class App extends Component {
 										<div className="container-left">
 											<Newuser onSubmit={this.handleNewuser.bind(this)}
 											errors={this.state.errors && this.state.errors.validations} />
-											{this.state.newUserSuccess && <Redirect to="/availabilities" /> }
+											{this.state.newUserSuccess && <Redirect to="/" /> }
 
 											</div>
 
 										<div className="container-right">
 											<Login onSubmit={this.handleExistingUser.bind(this)}
 											errors={this.state.errors && (this.state.errors.validations || this.state.errors.serverValidations)} />
-											{this.state.logInSuccess && <Redirect to="/" /> }
+											{this.state.logInSuccess && <Redirect to="/availabilities" /> }
 
 								</div>
 								</div>
@@ -209,7 +217,8 @@ class App extends Component {
 								<PageHeader>
 									<Row>
 										<Col xs={8}>
-											<small className='subtitle'>Select a profile for more information</small>
+											<br/>
+											<small className='subtitle'>Availability Listings for Today: </small>
 										</Col>
 									</Row>
 								</PageHeader>
@@ -218,32 +227,25 @@ class App extends Component {
 						)} />
 
 
-						<Route exact path="/createavailability" render={props => (
-							<Grid>
-								<PageHeader>
-									<Row>
-										<Col xs={8}>
-											SlipList
-											<small className='subtitle'> Welcome</small>
-										</Col>
-									</Row>
+						<Route exact path="/availabilities/new" render={props => {
+							if(this.state.newAvailSuccess) {
+								return <Redirect to="/availabilities" />
+							}
 
-								</PageHeader>
-								<CreateAvailability onSubmit={this.handleNewAvail.bind(this)} />
-							</Grid>
-						)} />
-
-						<Route exact path="/signin" render={props => (
-							<Grid>
-								<PageHeader>
-									<Row>
-										<Col xs={8}>
-											<small className='subtitle'>Please enter your log in information below. </small>
-										</Col>
-									</Row>
-								</PageHeader>
-							</Grid>
-						)} />
+							return (
+								<Grid>
+									<PageHeader>
+										<Row>
+											<br/>
+											<Col sm={12}>
+												<small className='subtitle'>Please enter your posting information below: </small>
+											</Col>
+										</Row>
+									</PageHeader>
+									<CreateAvailability onSubmit={this.handleNewAvail.bind(this) } />
+								</Grid>
+							)
+						}} />
 					</div>
 				</div>
 			</Router>

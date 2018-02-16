@@ -1,0 +1,32 @@
+body {
+	font-family: sans-serif;
+	background-color: white;
+}
+
+img {
+	margin: auto;
+	width: auto;
+}
+
+.map {
+	padding-top: 100px;
+	padding:none;
+}
+
+form {
+	width: 350px;
+	margin: 50px;
+}
+
+.flex {
+	display: flex;
+	flex-direction: row;
+}
+
+div.row {
+	width: 350px;
+}
+
+.container-left {
+	margin-left: 100px;
+}

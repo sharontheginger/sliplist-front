@@ -60,19 +60,22 @@ class Newuser extends Component {
 
 	render() {
       return (
-		  <form>
-        <Row>
-          <Col xs={6}>
+		  <form >
+
+		  <Row>
+
             {this.props.errors &&
               <Alert bsStyle="danger">
                 Please check the form and try again.
               </Alert>
             }
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={6}>
+
+</Row>
+
+<Row>
+
             <FormGroup
+			  bsSize="large"
               id="firstname-form-group"
               validationState={this.errorsFor('firstname') && 'error'}>
               <ControlLabel id="firstname">First Name</ControlLabel>
@@ -87,12 +90,13 @@ class Newuser extends Component {
                 <HelpBlock id="firstname-help-block">{this.errorsFor('firstname')}</HelpBlock>
               }
             </FormGroup>
-          </Col>
-        </Row>
 
-        <Row>
-          <Col xs={6}>
+</Row>
+
+<Row>
+
             <FormGroup
+			bsSize="large"
               id="lastname-form-group"
               validationState={this.errorsFor('lastname') && 'error'}>
               <ControlLabel id="lastname">Last Name</ControlLabel>
@@ -107,12 +111,13 @@ class Newuser extends Component {
                   <HelpBlock id="lastname-help-block">{this.errorsFor('lastname')}</HelpBlock>
                 }
             </FormGroup>
-          </Col>
-        </Row>
 
-		    <Row>
-          <Col xs={6}>
+</Row>
+
+<Row>
+
             <FormGroup
+			bsSize="large"
               id="email-form-group"
               validationState={this.errorsFor('email') && 'error'}>
               <ControlLabel id="email">Email</ControlLabel>
@@ -127,12 +132,13 @@ class Newuser extends Component {
                 <HelpBlock id="email-help-block">{this.errorsFor('email')}</HelpBlock>
               }
             </FormGroup>
-          </Col>
-        </Row>
 
-        <Row>
-          <Col xs={6}>
+</Row>
+
+<Row>
+
             <FormGroup
+			bsSize="large"
               id="password-form-group"
               validationState={this.errorsFor('password') && 'error'}>
               <ControlLabel id="password">Password</ControlLabel>
@@ -147,12 +153,13 @@ class Newuser extends Component {
                 <HelpBlock id="password-help-block">{this.errorsFor('password')}</HelpBlock>
               }
             </FormGroup>
-          </Col>
-        </Row>
 
-		    <Row>
-          <Col xs={6}>
+</Row>
+
+<Row>
+
             <FormGroup
+			bsSize="large"
               id="phone-form-group"
               validationState={this.errorsFor('phone') && 'error'}>
               <ControlLabel id="phone">Phone</ControlLabel>
@@ -167,18 +174,18 @@ class Newuser extends Component {
                     <HelpBlock id="phone-help-block">{this.errorsFor('phone')}</HelpBlock>
                   }
                 </FormGroup>
-          </Col>
-        </Row>
 
-        <Row>
-          <Col xs={6}>
+</Row>
+
+<Row>
+
             <Button
               id="submit"
               onClick={this.handleSubmit.bind(this)}>
               Create Profile
             </Button>
-          </Col>
-        </Row>
+
+</Row>
 
       </form>
       );

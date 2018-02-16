@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { Button, FormGroup, FormControl, ControlLabel, Col } from "react-bootstrap";
 
 
 export default class Login extends Component {
@@ -46,11 +46,14 @@ export default class Login extends Component {
     return (
 
         <form onSubmit={this.handleSubmit}>
+
           <FormGroup controlId="email" bsSize="large">
+
             <ControlLabel>Email</ControlLabel>
             <FormControl
               autoFocus
               type="email"
+			  placeholder="email"
 			  name="email"
               value={this.state.form.email}
               onChange={this.handleChange.bind(this)}
@@ -61,6 +64,7 @@ export default class Login extends Component {
             <FormControl
               value={this.state.form.password}
               onChange={this.handleChange.bind(this)}
+			  placeholder="password"
               type="password"
 			  name="password"
             />

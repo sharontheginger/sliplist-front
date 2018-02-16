@@ -31,14 +31,17 @@ onMapClicked = (props)=> {
    }
  }
 
+
+
 render() {
     return (
+
       <Map   google={this.props.google} initialCenter={{
           lat:32.7157,
           lng:-117.1611
         }}
       style={{width: '100%', height: '100%'}}
-      className={'map'}
+ 	className={'map'}
       zoom={13}>
     <Marker
 	  title={'San Diego Yacht Club'}
@@ -62,6 +65,7 @@ render() {
        <Marker onMouseover={this.onMouseoverMarker}
               name={'Current location'} />
   </Map>
+
     );
   }
 }

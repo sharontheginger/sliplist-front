@@ -8,12 +8,6 @@ img {
 	width: auto;
 }
 
-.map {
-	padding-top: 100px;
-	padding:none;
-	position: absolute;
-}
-
 form {
 	width: 350px;
 	margin: 50px;
@@ -30,4 +24,20 @@ div.row {
 
 .container-left {
 	margin-left: 100px;
+}
+
+
+.subtitle {
+	margin-left: 200px;
+}
+
+.no-line {
+	border-bottom: none;
+}
+
+h1 {
+	display: inline;
+}
+.subtitle2 {
+	margin-left: 350px;
 }

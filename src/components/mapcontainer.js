@@ -35,7 +35,7 @@ onMapClicked = (props)=> {
 
 render() {
     return (
-
+		<div id="googleMap">
       <Map   google={this.props.google} initialCenter={{
           lat:32.7157,
           lng:-117.1611
@@ -65,7 +65,7 @@ render() {
        <Marker onMouseover={this.onMouseoverMarker}
               name={'Current location'} />
   </Map>
-
+  </div>
     );
   }
 }

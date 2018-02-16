@@ -71,7 +71,7 @@ export default class Login extends Component {
           </FormGroup>
           <Button
             block
-			className="btn btn-primary"
+			className="btn btn-info"
             bsSize="large"
             type="submit"
 			onClick={this.handleSubmit.bind(this)}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Link} from 'react-router-dom'
 import {
   Button,
   Row,
@@ -44,7 +45,7 @@ handleSubmit() {
 		  <form>
 
         <Row>
-          <Col xs={6}>
+          <Col xs={16}>
             <FormGroup>
               <ControlLabel id="loa">Length Over All</ControlLabel>
               <FormControl
@@ -60,7 +61,7 @@ handleSubmit() {
 
 
 		<Row>
-          <Col xs={6}>
+          <Col xs={16}>
             <FormGroup>
               <ControlLabel id="type">Type</ControlLabel>
 			  <FormControl
@@ -75,7 +76,7 @@ handleSubmit() {
         </Row>
 
 		<Row>
-			<Col xs={6}>
+			<Col xs={16}>
 				<FormGroup>
 					<ControlLabel id="location">Location</ControlLabel>
 						<FormControl
@@ -90,14 +91,15 @@ handleSubmit() {
 		</Row>
 
 		<Row>
-			<Col xs={6}>
+			<Col xs={16}>
 				<FormGroup>
 					<ControlLabel id="Description">Description</ControlLabel>
 						<FormControl
 						type="textarea"
 						name="description"
-						placeholder="A description of additional information the renter might need"
+						placeholder="A description of additional information the renter might need (Example: )"
 						componentClass="textarea"
+						style={{height: 100}}
 						onChange={this.handleChange.bind(this)}
 						value={this.state.locationform.description}
 						/>
@@ -106,9 +108,10 @@ handleSubmit() {
 		</Row>
 
 		<Row>
-          <Col xs={6}>
+          <Col xs={16}>
             <Button id="submit"
-			onClick={this.handleSubmit.bind(this)}>
+			onClick={this.handleSubmit.bind(this)}
+			>
 			Create Availability
 			</Button>
           </Col>

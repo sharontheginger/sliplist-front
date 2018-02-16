@@ -10,14 +10,6 @@ class User extends Component {
   render() {
     let users = this.props.users || []
 
-    // this is the long-hand version of the above
-    // let users;
-    // if(this.props.users == undefined) {
-    //   avails = []
-    // } else {
-    //   avails = this.props.users
-    // }
-
     return (
       <Row>
         <Col xs={12}>

@@ -35,7 +35,7 @@ class NavbarTop extends Component {
                   <NavItem eventKey={1} href="/">
                     Sign Up
                   </NavItem>
-                  <NavItem eventKey={2} href="#">
+                  <NavItem eventKey={2} href="/signin">
                     Sign In
                   </NavItem>
                 </Nav>

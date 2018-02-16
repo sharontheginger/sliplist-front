@@ -33,11 +33,11 @@ onMapClicked = (props)=> {
 
 render() {
     return (
-      <Map  id="map" google={this.props.google} initialCenter={{
+      <Map   google={this.props.google} initialCenter={{
           lat:32.7157,
           lng:-117.1611
         }}
-      style={{width: '75%', height: '60%', position: 'absolute'}}
+      style={{width: '100%', height: '100%'}}
       className={'map'}
       zoom={13}>
     <Marker

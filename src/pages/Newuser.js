@@ -179,7 +179,7 @@ class Newuser extends Component {
 
 <Row>
 
-            <Button
+            <Button className="btn btn-info btn btn-lg btn-default btn-block"
               id="submit"
               onClick={this.handleSubmit.bind(this)}>
               Create Profile

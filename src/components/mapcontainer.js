@@ -41,19 +41,22 @@ render() {
       className={'map'}
       zoom={13}>
     <Marker
-      title={'The marker`s title will appear as a tooltip.'}
+	  title={'San Diego Yacht Club'}
       name={'SDYC'}
       position={{lat:32.7183841, lng: -117.2292025}} />
     <Marker
       name={'Shelter Island Marina'}
+	  title={'Shelter Island Marina'}
       position={{lat: 32.709925, lng: -117.231824}} />
     <Marker />
       <Marker
         name={'Embarcadero Mooring field'}
+		title={'Embarcadero Mooring field'}
         position={{lat: 32.726191, lng: -117.176331}} />
       <Marker />
     <Marker
       name={'Bridge Mooring field'}
+	  title={'Bridge Mooring field'}
       position={{lat: 32.688582, lng: -117.162332}}
        />
        <Marker onMouseover={this.onMouseoverMarker}

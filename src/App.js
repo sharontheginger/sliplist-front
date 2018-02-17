@@ -14,6 +14,7 @@ import Availabilities from './pages/Availabilities'
 import CreateAvailability from './pages/CreateAvailability'
 import GoogleApiWrapper from './components/mapcontainer'
 import Login from './pages/signin.js'
+import Logout from './pages/Logout.js'
 
 const apiUrl = "http://localhost:3000"
 
@@ -23,7 +24,7 @@ class App extends Component {
 		this.state = {
 			googleAPI: "https://maps.googleapis.com/maps/api/js?key=AIzaSyAPHEKTmg_-2YGuO7CSoQgw-nunhQL7xTM&callback=initMap",
 			errors: null,
-			users: [],
+			user: [],
 
 
 		availabilities:[],
@@ -86,20 +87,21 @@ class App extends Component {
 		}
 		)
 		.then((raw)=>{
+			console.log("hello")
 			return raw.json()
 		})
 		.then((res) =>{
 			if(res.errors){ // <- Check for any server side errors
 				this.setState({errors: res.errors})
 			}else{
-				const { users } = this.state
+				const { user } = this.state
 
-				users.push(res.user) // <- Add the new cat to our list of users
+				user.push(res.user) // <- Add the new cat to our list of users
 
 				localStorage.setItem('authToken', this.state.user[0].authToken)
 
 				this.setState({
-					users: users,  // <- Update cats in state
+					user: user,  // <- Update cats in state
 					errors: null, // <- Clear out any errors if they exist
 					newUserSuccess: true,
 					isLoggedIn: true
@@ -142,7 +144,7 @@ class App extends Component {
 
 
 	handleExistingUser(params) {
-		fetch(`${apiUrl}/login`,{
+		fetch(`${apiUrl}/users/signin`,{
 			body:JSON.stringify(params),
 			headers: {
 				'Content-Type': 'application/json'
@@ -152,10 +154,10 @@ class App extends Component {
 			return raw.json()
 		}).then((res) => {
 			if(res.errors){
+				console.log("login errors", res.errors);
 				this.setState({errors: res.errors})
-				console.log(this.state.errors)
 			} else {
-				const user = Object.assign([], this.state.user)
+				const { user } = this.state
 				user.push(res.user)
 				this.setState({
 					user: user,  // <- Update users in state
@@ -178,8 +180,10 @@ class App extends Component {
 		return (
 			<Router>
 
-<div>
-<NavbarTop />
+				<div>
+					<NavbarTop isLoggedIn={this.state.isLoggedIn} />
+					<div>
+
 						<Route exact path="/" render={props => (
 
 							<Grid>
@@ -256,6 +260,17 @@ class App extends Component {
 							)
 						}} />
 
+						<Route path="/logout" render={props => (
+			                  <div>
+		                        <Logout
+		                            onSubmit={this.logOut.bind(this)}
+		                        />
+		                        {this.state.logOutSuccess &&
+		                          <Redirect to="/" />
+		                        }
+	                  		</div>
+              )} />
+					</div>
 
 				</div>
 			</Router>

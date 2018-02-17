@@ -31,15 +31,21 @@ class NavbarTop extends Component {
                     <MenuItem eventKey={3.3} href='/'>Home</MenuItem>
                   </NavDropdown>
                 </Nav>
-                <Nav pullRight>
-                  <NavItem eventKey={1} href="/">
-                    Sign Up
-                  </NavItem>
+				<Nav pullRight>
+                    {!this.props.isLoggedIn &&
+                        <Nav pullRight>
+                          <NavItem eventKey={1} href='/' >
+                            Sign Up
+                          </NavItem>
+                          <NavItem eventKey={2} href="/">
+                            Sign In
+                          </NavItem>
+                        </Nav>
+                    }
 
-                  <NavItem eventKey={2} href="/signin">
-
-                    Sign In
-                  </NavItem>
+					{this.props.isLoggedIn && <NavItem eventKey={3} href="/logout">
+                    Sign Out
+                  </NavItem>}
                 </Nav>
               </Navbar.Collapse>
             </Navbar>

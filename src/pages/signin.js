@@ -24,9 +24,17 @@ export default class Login extends Component {
 		  this.setState({form: formState})
 	  }
 
-	  handleSubmit () {
-		  this.props.onSubmit(this.state.form)
-		  console.log(this.state.form)
+	  handleSubmit(e) {
+		  e.preventDefault()
+
+		  const { onSubmit } = this.props
+		  const { form } = this.state
+
+		  if(onSubmit) {
+			  onSubmit(form)
+		  } else {
+			  console.log("no onSubmit function was passed to signin form");
+		  }
 	  }
 
 	  errorsFor(attribute){
@@ -43,9 +51,12 @@ export default class Login extends Component {
     }
 
   render() {
-    return (
+	const { form } = this.state
+	const { email, password } = form
 
-        <form onSubmit={this.handleSubmit}>
+
+    return (
+        <form onSubmit={this.handleSubmit.bind(this)}>
 
           <FormGroup controlId="email" bsSize="large">
 
@@ -55,14 +66,14 @@ export default class Login extends Component {
               type="email"
 			  placeholder="email"
 			  name="email"
-              value={this.state.form.email}
+              value={email}
               onChange={this.handleChange.bind(this)}
             />
           </FormGroup>
           <FormGroup controlId="password" bsSize="large">
             <ControlLabel>Password</ControlLabel>
             <FormControl
-              value={this.state.form.password}
+              value={password}
               onChange={this.handleChange.bind(this)}
 			  placeholder="password"
               type="password"

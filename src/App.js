@@ -26,7 +26,8 @@ class App extends Component {
 			errors: null,
 			user: [],
 
-			availabilities:[],
+
+		availabilities:[],
 	    	newUserSuccess: false,
 			newAvailSuccess: false,
 
@@ -178,41 +179,52 @@ class App extends Component {
 	render() {
 		return (
 			<Router>
+
 				<div>
 					<NavbarTop isLoggedIn={this.state.isLoggedIn} />
 					<div>
+
 						<Route exact path="/" render={props => (
+
 							<Grid>
-								<PageHeader>
-									<CarouselTop />
-									<Row>
-										<Col xs={8}>
-											<small className='subtitle'> Sign Up </small>
-										</Col>
-									</Row>
-								</PageHeader>
+							<PageHeader >
+							<CarouselTop />
+
+							</PageHeader>
+
+
 								<div className="flex">
 
 
-										<div className="container-left">
+	<div className="container-left">
+										<h1  className='subtitle2'>
+										Sign In
+										</h1>
 											<Newuser onSubmit={this.handleNewuser.bind(this)}
 											errors={this.state.errors && this.state.errors.validations} />
 											{this.state.newUserSuccess && <Redirect to="/" /> }
 
-											</div>
+	</div>
 
-										<div className="container-right">
+<div className="container-right">
+										<h1  className='subtitle'>
+										Sign Up
+										</h1>
 											<Login onSubmit={this.handleExistingUser.bind(this)}
 											errors={this.state.errors && (this.state.errors.validations || this.state.errors.serverValidations)} />
 											{this.state.logInSuccess && <Redirect to="/availabilities" /> }
 
 								</div>
 								</div>
+
+
+
+								<Col className="container-map">
 								<GoogleApiWrapper />
+								</Col>
 							</Grid>
-
-
 						)} />
+
 
 						<Route exact path="/availabilities" render={props => (
 							<Grid>
@@ -227,7 +239,6 @@ class App extends Component {
 								<Availabilities availabilities={this.state.availabilities} />
 							</Grid>
 						)} />
-
 
 						<Route exact path="/availabilities/new" render={props => {
 							if(this.state.newAvailSuccess) {
@@ -248,6 +259,7 @@ class App extends Component {
 								</Grid>
 							)
 						}} />
+
 						<Route path="/logout" render={props => (
 			                  <div>
 		                        <Logout
@@ -259,6 +271,7 @@ class App extends Component {
 	                  		</div>
               )} />
 					</div>
+
 				</div>
 			</Router>
 		);

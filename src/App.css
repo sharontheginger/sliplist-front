@@ -1,18 +1,11 @@
+
+
 body {
 	font-family: sans-serif;
 	background-color: white;
+color:#51c1db;
 }
 
-img {
-	margin: auto;
-	width: auto;
-}
-
-.map {
-	padding-top: 100px;
-	padding:none;
-	position: absolute;
-}
 
 form {
 	width: 350px;
@@ -30,4 +23,63 @@ div.row {
 
 .container-left {
 	margin-left: 100px;
+}
+
+h1.subtitle {
+	padding-left: 130px;
+
+}
+
+h1.subtitle2 {
+	padding-left: 130px;
+}
+
+.no-line {
+	border-bottom: none;
+}
+
+h1 {
+	display: inline;
+	flex-direction: row;
+}
+
+
+
+.carousel-control { background-image: none !important; filter: none !important; progid:none !important;
+-o-transition:.5s;
+-ms-transition:.5s;
+-moz-transition:.5s;
+-webkit-transition:.5s;
+top: 50%;
+bottom: 50%;
+
+}
+
+.carousel-control.right, .carousel-control.left {
+  background-image:none;
+}
+
+
+.carousel-inner>.item>{
+   /*disables white flash*/
+   -webkit-transition: -webkit-transform .5s ease-in-out;
+   -o-transition: -o-transform .5s ease-in-out;
+   transition: transform .5s ease-in-out;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color:#51c1db;
+}
+
+
+.navbar-inverse .navbar-brand {
+	color: #51c1db;
+}
+.navbar-inverse {
+	color: white;
+
+}
+
+.googleMap {
+	background: cover;
 }

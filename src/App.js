@@ -13,7 +13,8 @@ import Newuser from './pages/Newuser'
 import Availabilities from './pages/Availabilities'
 import CreateAvailability from './pages/CreateAvailability'
 import GoogleApiWrapper from './components/mapcontainer'
-import Login from './pages/signin.js'
+import Footer from './components/footer'
+import Login from './components/signin.js'
 import Logout from './pages/Logout.js'
 
 const apiUrl = "http://localhost:3000"
@@ -182,7 +183,7 @@ class App extends Component {
 
 				<div>
 					<NavbarTop isLoggedIn={this.state.isLoggedIn} />
-					<div>
+<div>
 
 						<Route exact path="/" render={props => (
 
@@ -196,7 +197,7 @@ class App extends Component {
 								<div className="flex">
 
 
-	<div className="container-left">
+								<div className="container-left">
 										<h1  className='subtitle2'>
 										Sign In
 										</h1>
@@ -204,9 +205,9 @@ class App extends Component {
 											errors={this.state.errors && this.state.errors.validations} />
 											{this.state.newUserSuccess && <Redirect to="/" /> }
 
-	</div>
+											</div>
 
-<div className="container-right">
+											<div className="container-right">
 										<h1  className='subtitle'>
 										Sign Up
 										</h1>
@@ -218,10 +219,14 @@ class App extends Component {
 								</div>
 
 
-
-								<Col className="container-map">
+								<div className = "parent">
+								<div className = "child">
+								<span>
 								<GoogleApiWrapper />
-								</Col>
+								</span>
+								<Footer />
+								</div>
+								</div>
 							</Grid>
 						)} />
 
@@ -236,7 +241,9 @@ class App extends Component {
 										</Col>
 									</Row>
 								</PageHeader>
+
 								<Availabilities availabilities={this.state.availabilities} />
+
 							</Grid>
 						)} />
 
@@ -245,7 +252,7 @@ class App extends Component {
 								return <Redirect to="/availabilities" />
 							}
 
-							return (
+return (
 								<Grid>
 									<PageHeader>
 										<Row>
@@ -257,7 +264,7 @@ class App extends Component {
 									</PageHeader>
 									<CreateAvailability onSubmit={this.handleNewAvail.bind(this) } />
 								</Grid>
-							)
+)
 						}} />
 
 						<Route path="/logout" render={props => (
@@ -270,7 +277,8 @@ class App extends Component {
 		                        }
 	                  		</div>
               )} />
-					</div>
+</div>
+
 
 				</div>
 			</Router>

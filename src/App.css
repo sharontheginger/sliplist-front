@@ -1,15 +1,14 @@
-
-
 body {
 	font-family: sans-serif;
-	background-color: black;
-	color:white;
+	background-color: white;
+	color: #51c1db;
 }
 
 
 form {
 	width: 350px;
 	margin: 50px;
+	color: #51c1db;
 }
 
 .flex {
@@ -17,9 +16,6 @@ form {
 	flex-direction: row;
 }
 
-div.row {
-	width: 350px;
-}
 
 .container-left {
 	margin-left: 100px;
@@ -52,7 +48,7 @@ h1 {
 -webkit-transition:.5s;
 top: 50%;
 bottom: 50%;
-
+display: none;
 }
 
 .carousel-control.right, .carousel-control.left {
@@ -80,6 +76,33 @@ bottom: 50%;
 
 }
 
-.googleMap {
-	background: cover;
+
+.subtitle {
+	color: #51c1db;
+}
+
+.ownerBoat {
+	display: flex;
+	flex-direction: row;
+}
+
+.footer {
+	position:absolute;
+	height:60px;
+	text-align: center;
+}
+
+.parent {
+	height: 300px;
+}
+
+.child{
+  height: 100px;
+  margin: auto;
+
+}
+
+#image {
+	float: right;
+	height: 800px;
 }

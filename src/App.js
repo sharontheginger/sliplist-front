@@ -198,7 +198,7 @@ class App extends Component {
 
 	<div className="container-left">
 										<h1  className='subtitle2'>
-										Sign In
+										Sign Up
 										</h1>
 											<Newuser onSubmit={this.handleNewuser.bind(this)}
 											errors={this.state.errors && this.state.errors.validations} />
@@ -208,7 +208,7 @@ class App extends Component {
 
 <div className="container-right">
 										<h1  className='subtitle'>
-										Sign Up
+										Sign In
 										</h1>
 											<Login onSubmit={this.handleExistingUser.bind(this)}
 											errors={this.state.errors && (this.state.errors.validations || this.state.errors.serverValidations)} />

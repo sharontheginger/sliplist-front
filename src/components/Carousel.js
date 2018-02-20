@@ -7,7 +7,7 @@ class CarouselTop extends Component {
 	render() {
 		return(
 
-			        <Carousel>
+			        <Carousel >
 					<Carousel.Item>
 						<img src="https://images.unsplash.com/photo-1513002277650-6deb8404a2cd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=440f1faab63bf310ab154f63fb74d06d&auto=format&fit=crop&w=1051&q=80"/>
 						<Carousel.Caption>

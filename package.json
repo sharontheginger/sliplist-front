@@ -2,6 +2,7 @@
   "name": "sliplist-front",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3000",
   "dependencies": {
     "google-maps-react": "^1.1.2",
     "jest": "20.0.4 ",

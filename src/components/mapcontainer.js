@@ -40,7 +40,7 @@ render() {
           lat:32.7157,
           lng:-117.1611
         }}
-      style={{width: '100%', height: '100%'}}
+      style={{width: '75%', height: '50%'}}
  	className={'map'}
       zoom={13}>
     <Marker

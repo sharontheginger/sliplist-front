@@ -50,7 +50,7 @@ class Availabilities extends Component {
         </Col>
       </Row>
 
-    );
+	);
   }
 }
 export default Availabilities

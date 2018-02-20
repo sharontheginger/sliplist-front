@@ -42,8 +42,8 @@ handleSubmit() {
 
 	render() {
       return (
+		  <div className="ownerBoat">
 		  <form>
-
         <Row>
           <Col xs={16}>
             <FormGroup>
@@ -109,16 +109,20 @@ handleSubmit() {
 
 		<Row>
           <Col xs={16}>
-            <Button id="submit"
+            <Button className="btn btn-success"
 			onClick={this.handleSubmit.bind(this)}
 			>
 			Create Availability
 			</Button>
           </Col>
         </Row>
+	  </form>
+	  <div className="container">
+	  <img id="image" src="https://images.unsplash.com/photo-1463464013989-87d18b6e0d95?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=af86d72875103147a1535adad0092095&auto=format&fit=crop&w=632&q=80" alt="pic of boat"/>
+	  </div>
+	  </div>
 
-      </form>
-      );
+	  );
     }
   }
 

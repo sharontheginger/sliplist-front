@@ -17,7 +17,7 @@ import Footer from './components/footer'
 import Login from './components/signin.js'
 import Logout from './pages/Logout.js'
 
-const apiUrl = process.env.ENV === 'production' ? 'https://sliplist6.herokuapp.com' : "http://localhost:3000"
+const apiUrl = process.env.NODE_ENV === 'production' ? "https://sliplist6.herokuapp.com" : "http://localhost:3000"
 
 class App extends Component {
 	constructor(props){

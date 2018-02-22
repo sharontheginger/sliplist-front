@@ -5,6 +5,7 @@ class Footer extends Component {
 		return(
 			<footer className="footer">
 				<h5> productions by Learn Academy Alumni </h5>
+				<h1>Environment {process.env.NODE_ENV}</h1>
 			</footer>
 		)
 	}

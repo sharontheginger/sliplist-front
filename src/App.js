@@ -67,9 +67,6 @@ class App extends Component {
 		}
 	}
 
-
-
-
 	getUsers() {
 		fetch(`${apiUrl}/users`)
 		.then((raw) => {
@@ -89,11 +86,9 @@ class App extends Component {
 		method: "POST"  // <- Here's our verb, so the correct endpoint is invoked on the server
 		}
 		)
-		.then((raw)=>{
-			console.log("hello")
-			return raw.json()
-		})
-		.then((res) =>{
+		.then((raw)=>
+			return raw.json())
+		.then((res) => {
 			if(res.errors){ // <- Check for any server side errors
 				this.setState({errors: res.errors})
 			}else{
@@ -116,35 +111,35 @@ class App extends Component {
 	}
 
 	handleNewAvail(params){
-	fetch(`${apiUrl}/availabilities`,
-	  {
-		body: JSON.stringify(params),  // <- we need to stringify the json for fetch
-		headers: {  // <- We specify that we're sending JSON, and expect JSON back
-		  'Content-Type': 'application/json'
-		},
-		method: "POST"  // <- Here's our verb, so the correct endpoint is invoked on the server
-	  }
-	)
-	.then(raw => raw.json())
-	.then((res) => {
-		if(res.errors){ // <- Check for any server side errors
-			this.setState({errors: res.errors})
-		} else {
-			const { availabilities } = this.state
+		fetch(`${apiUrl}/availabilities`,
+		  {
+			body: JSON.stringify(params),  // <- we need to stringify the json for fetch
+			headers: {  // <- We specify that we're sending JSON, and expect JSON back
+			  'Content-Type': 'application/json'
+			},
+			method: "POST"  // <- Here's our verb, so the correct endpoint is invoked on the server
+		  }
+		)
+		.then((raw) => raw.json())
+		.then((res) => {
+			if(res.errors){ // <- Check for any server side errors
+				this.setState({errors: res.errors})
+			} else {
+				const { availabilities } = this.state
 
-			availabilities.push(res.available) // <- Add the new cat to our list of users
+				availabilities.push(res.available) // <- Add the new cat to our list of users
 
-			this.setState({
-			availabilities: availabilities,  // <- Update cats in state
-			errors: null, // <- Clear out any errors if they exist
-			newAvailSuccess: true,
-			})
+				this.setState({
+					availabilities: availabilities,  // <- Update cats in state
+					errors: null, // <- Clear out any errors if they exist
+					newAvailSuccess: true,
+				})
 			}
-	})
+		})
+		.catch((e) => {
+			console.log("error with availability:", e);
+		})
 	}
-
-
-
 
 	handleExistingUser(params) {
 		fetch(`${apiUrl}/users/signin`,{
@@ -153,8 +148,7 @@ class App extends Component {
 				'Content-Type': 'application/json'
 			},
 			method: "POST"
-		}).then((raw) => {
-			return raw.json()
+		}).then((raw) => raw.json())
 		}).then((res) => {
 			if(res.errors){
 				console.log("login errors", res.errors);
@@ -176,9 +170,6 @@ class App extends Component {
 		})
 	}
 
-
-
-
 	render() {
 		return (
 			<Router>
@@ -195,7 +186,7 @@ class App extends Component {
 
 									<div className="container-left">
 										<h1  className='subtitle2'>
-											Sign In
+											Sign Up
 										</h1>
 										<Newuser onSubmit={this.handleNewuser.bind(this)}
 										errors={this.state.errors && this.state.errors.validations} />
@@ -204,7 +195,7 @@ class App extends Component {
 
 									<div className="container-right">
 										<h1  className='subtitle'>
-											Sign Up
+											Sign In
 										</h1>
 										<Login onSubmit={this.handleExistingUser.bind(this)}
 										errors={this.state.errors && (this.state.errors.validations || this.state.errors.serverValidations)} />

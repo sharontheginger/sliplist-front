@@ -81,13 +81,13 @@ class App extends Component {
 		fetch(`${apiUrl}/users`,{
 			body: JSON.stringify(params),  // <- we need to stringify the json for fetch
 			headers: {  // <- We specify that we're sending JSON, and expect JSON back
-			'Content-Type': 'application/json'
-		},
-		method: "POST"  // <- Here's our verb, so the correct endpoint is invoked on the server
-		}
-		)
+				'Content-Type': 'application/json'
+			},
+			method: "POST"  // <- Here's our verb, so the correct endpoint is invoked on the server
+		})
 		.then((raw) => raw.json())
 		.then((res) => {
+			console.log(res);
 			if(res.errors){ // <- Check for any server side errors
 				this.setState({errors: res.errors})
 			}else{
@@ -147,7 +147,8 @@ class App extends Component {
 				'Content-Type': 'application/json'
 			},
 			method: "POST"
-		}).then((raw) => raw.json())
+		})
+		.then((raw) => raw.json())
 		.then((res) => {
 			if(res.errors){
 				console.log("login errors", res.errors);
@@ -161,7 +162,7 @@ class App extends Component {
 					logInSuccess: true, // <- This is the new flag in state
 					isLoggedIn: true
 				})
-				console.log(this.state.user)
+
 				localStorage.setItem('authToken', this.state.user[0].authToken)
 			}
 		}).catch(function() {
@@ -188,7 +189,7 @@ class App extends Component {
 											Sign Up
 										</h1>
 										<Newuser onSubmit={this.handleNewuser.bind(this)}
-										errors={this.state.errors && this.state.errors.validations} />
+										errors={this.state.errors} />
 										{this.state.newUserSuccess && <Redirect to="/" /> }
 									</div>
 

@@ -46,15 +46,19 @@ class Newuser extends Component {
 	}
 
 	errorsFor(attribute){
-	  var errorString = ""
-	  if(this.props.errors){
-	    const errors = this.props.errors.filter(error => error.param === attribute )
-	    if(errors){
-	      errorString = errors.map(error => error.msg ).join(", ")
-		    }
-		  }
-	  // console.log(errorString);
-	  return errorString === "" ? null : errorString
+		const { errors } = this.props
+
+		var errorString = ""
+
+		if(errors){
+			const errors = errors.filter(error => error.param === attribute)
+
+			if(errors){
+				errorString = errors.map(error => error.msg).join(", ")
+			}
+		}
+
+		return errorString === "" ? null : errorString
 	}
 
 	render() {

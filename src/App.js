@@ -148,7 +148,7 @@ class App extends Component {
 			},
 			method: "POST"
 		}).then((raw) => raw.json())
-		}).then((res) => {
+		.then((res) => {
 			if(res.errors){
 				console.log("login errors", res.errors);
 				this.setState({errors: res.errors})

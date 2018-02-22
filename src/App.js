@@ -86,8 +86,7 @@ class App extends Component {
 		method: "POST"  // <- Here's our verb, so the correct endpoint is invoked on the server
 		}
 		)
-		.then((raw)=>
-			return raw.json())
+		.then((raw) => raw.json())
 		.then((res) => {
 			if(res.errors){ // <- Check for any server side errors
 				this.setState({errors: res.errors})

@@ -1,9 +1,17 @@
 body {
 	font-family: sans-serif;
-	background-color: white;
+	background-color: black;
 	color: #51c1db;
 }
 
+div.avail {
+	background-image: url("https://images.unsplash.com/photo-1516803169923-cf5fd5f6858e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=870f57ab955769a2e35a72ebea607085&auto=format&fit=crop&w=1500&q=80");
+	height: 100em;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
 
 form {
 	width: 350px;
@@ -15,7 +23,6 @@ form {
 	display: flex;
 	flex-direction: row;
 }
-
 
 .container-left {
 	margin-left: 100px;
@@ -39,28 +46,25 @@ h1 {
 	flex-direction: row;
 }
 
-
-
 .carousel-control { background-image: none !important; filter: none !important; progid:none !important;
--o-transition:.5s;
--ms-transition:.5s;
--moz-transition:.5s;
--webkit-transition:.5s;
-top: 50%;
-bottom: 50%;
-display: none;
+	-o-transition:.5s;
+	-ms-transition:.5s;
+	-moz-transition:.5s;
+	-webkit-transition:.5s;
+	top: 50%;
+	bottom: 50%;
+	display: none;
 }
 
 .carousel-control.right, .carousel-control.left {
-  background-image:none;
+	background-image:none;
 }
 
 
 .carousel-inner>.item>{
-   /*disables white flash*/
-   -webkit-transition: -webkit-transform .5s ease-in-out;
-   -o-transition: -o-transform .5s ease-in-out;
-   transition: transform .5s ease-in-out;
+	-webkit-transition: -webkit-transform .5s ease-in-out;
+	-o-transition: -o-transform .5s ease-in-out;
+	transition: transform .5s ease-in-out;
 }
 
 .navbar-inverse .navbar-nav>li>a {
@@ -71,9 +75,9 @@ display: none;
 .navbar-inverse .navbar-brand {
 	color: #51c1db;
 }
+
 .navbar-inverse {
 	color: white;
-
 }
 
 
@@ -97,12 +101,19 @@ display: none;
 }
 
 .child{
-  height: 100px;
-  margin: auto;
-
+	height: 100px;
+	margin: auto;
 }
 
 #image {
 	float: right;
 	height: 800px;
+}
+
+.backImg {
+	background-color: white;
+}
+
+.Create {
+	width: 500px;
 }

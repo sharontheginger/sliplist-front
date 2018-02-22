@@ -53,15 +53,14 @@ class Newuser extends Component {
 	      errorString = errors.map(error => error.msg ).join(", ")
 		    }
 		  }
-	  console.log(errorString);
+	  // console.log(errorString);
 	  return errorString === "" ? null : errorString
 	}
 
 	render() {
       return (
-		  <form >
-
-		  <Row>
+		  <form>
+			<Row>
 
             {this.props.errors &&
               <Alert bsStyle="danger">
@@ -69,9 +68,9 @@ class Newuser extends Component {
               </Alert>
             }
 
-</Row>
+			</Row>
 
-<Row>
+			<Row>
 
             <FormGroup
 			  bsSize="large"

@@ -63,7 +63,7 @@ display: none;
    transition: transform .5s ease-in-out;
 }
 
-.navbar-inverse .navbar-nav>li>a {
+.navbar-inverse .navbar-nav> {
 	color:#51c1db;
 }
 
@@ -76,10 +76,6 @@ display: none;
 
 }
 
-
-.subtitle {
-	color: #51c1db;
-}
 
 .ownerBoat {
 	display: flex;

@@ -62,7 +62,8 @@ class App extends Component {
 			this.setState({isLoggedIn: true})
 		} else {
 			this.setState({isLoggedIn: false})
-		}
+		}.catch((err) => {
+			console.log("error registering:", err);
 	}
 
 

@@ -13,7 +13,7 @@ class NavbarTop extends Component {
         <div className="navbar-fixed-top">
             <Navbar  inverse collapseOnSelect>
               <Navbar.Header>
-			    <img  className='navbar-brand' src='https://upload.wikimedia.org/wikipedia/commons/b/be/USNA%2C_OCS%2C_and_NROTC_anchor.png'/>
+			    <img  className='navbar-brand' src='https://upload.wikimedia.org/wikipedia/commons/b/be/USNA%2C_OCS%2C_and_NROTC_anchor.png' alt="anchor icon"/>
 
 				  <Navbar.Brand>
 				  <a href='/'>Slip List</a>

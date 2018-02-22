@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import {
   Button,
   Row,
-  Col,
   FormGroup,
   ControlLabel,
   FormControl,

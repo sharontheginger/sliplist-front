@@ -3,8 +3,6 @@ import {
   Navbar,
   Nav,
   NavItem,
-  NavDropdown,
-  MenuItem
 } from 'react-bootstrap'
 
 
@@ -15,7 +13,7 @@ class NavbarTop extends Component {
         <div className="navbar-fixed-top">
             <Navbar  inverse collapseOnSelect>
               <Navbar.Header>
-			    <img  className='navbar-brand' src='https://upload.wikimedia.org/wikipedia/commons/b/be/USNA%2C_OCS%2C_and_NROTC_anchor.png'alt="big ole' titles"/>
+			    <img  className='navbar-brand' src='https://upload.wikimedia.org/wikipedia/commons/b/be/USNA%2C_OCS%2C_and_NROTC_anchor.png'/>
 
 				  <Navbar.Brand>
 				  <a href='/'>Slip List</a>

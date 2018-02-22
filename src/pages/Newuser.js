@@ -144,7 +144,7 @@ class Newuser extends Component {
     			  <FormControl
       			  type="password"
       			  name="password"
-              placeholder='Password'
+              placeholder='password'
       			  onChange={this.handleChange.bind(this)}
         	  	value={this.state.form.password}
               />

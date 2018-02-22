@@ -64,7 +64,7 @@ export default class Login extends Component {
             <FormControl
               autoFocus
               type="email"
-			  placeholder="email"
+			  placeholder="example@example.com"
 			  name="email"
               value={email}
               onChange={this.handleChange.bind(this)}

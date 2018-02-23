@@ -34,11 +34,17 @@ class NavbarTop extends Component {
 							</Nav>
 							}
 
-							{this.props.isLoggedIn && <NavItem eventKey={3} href="/logout">
-								Sign Out
-							</NavItem> && <NavItem eventKey={2} href="/availabilities/new">
-								Create Availability
-							</NavItem>}
+							{this.props.isLoggedIn &&
+							<Nav pullRight>
+								<NavItem eventKey={3} href="/logout">
+									Sign Out
+								</NavItem>
+
+							    <NavItem eventKey={2} href="/availabilities/new">
+									Create Availability
+								</NavItem>
+							</Nav>
+						   }
 						</Nav>
 					</Navbar.Collapse>
 				</Navbar>

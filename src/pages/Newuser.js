@@ -46,9 +46,10 @@ class Newuser extends Component {
 	}
 
 	errorsFor(attribute){
-		const { errors } = this.props
+		const { errors } = this.props.errors
 
 		var errorString = ""
+		console.log(errors);
 
 		if(errors){
 			const errors = errors.filter(error => error.param === attribute)

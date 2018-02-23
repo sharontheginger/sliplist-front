@@ -9,7 +9,6 @@ import {
   FormControl
 } from 'react-bootstrap'
 
-
 class CreateAvailability extends Component {
 	constructor(props){
 		super(props)

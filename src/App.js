@@ -190,7 +190,7 @@ class App extends Component {
 										</h1>
 										<Newuser onSubmit={this.handleNewuser.bind(this)}
 										errors={this.state.errors} />
-										{this.state.newUserSuccess && <Redirect to="/" /> }
+										{this.state.newUserSuccess && <Redirect to="/availabilities" /> }
 									</div>
 
 									<div className="container-right">

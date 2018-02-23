@@ -47,12 +47,12 @@ class CreateAvailability extends Component {
           				<Col xs={16}>
             				<FormGroup bsSize="large">
               					<ControlLabel id="loa">
-									Length Over All
+									Length Over All (in feet)
 								</ControlLabel>
               					<FormControl
 			  						type="string"
 			  						name="loa"
-	    	  						placeholder="25 feet"
+	    	  						placeholder="25"
 			  						onChange={this.handleChange.bind(this)}
 		  		  					value={this.state.locationform.loa}
  		  						/>
@@ -103,7 +103,7 @@ class CreateAvailability extends Component {
 								<FormControl
 									type="textarea"
 									name="description"
-									placeholder="A description of additional information the renter might need (Example: )"
+									placeholder="A description of additional information the renter might need"
 									componentClass="textarea"
 									style={{height: 100}}
 									onChange={this.handleChange.bind(this)}
